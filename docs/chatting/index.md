@@ -1,23 +1,41 @@
-nav:
-  - Section:
-    - section/index.md 
-    - Page 1: section/page-1.md
-    - Page n: section/page-n.md
+# AI 聊天相关知识概览
 
-# Welcome to MkDocs
+!!! tips
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+    点击左边或菜单内的导航，可以快速的跳到相关的小节。
 
-## Commands
+## 重中之重 - 不要给倒卖交智商税
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## 取用模型的主要方式
 
-## Project layout
+### 取得 LLM 服务的 API 密钥
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+!!! tips
+    
+    无论你使用什么前端，你总要用它们的 API 密钥访问它们。
+
+[Subscribe to our newsletter](#){ .md-button }
+
+### 使用 Clewd
+
+!!! tips
+
+    省流：酒馆是使用 AI 的场所，小克(Claude)是 AI，Clewd 是拐骗良家小克到酒馆的黄毛，破限是酒。
+
+### 使用本地模型
+
+!!! bug
+
+    因为文档作者财力不足，暂时没有和本地运行模型相关的建议。
+
+## 常用前端 - SillyTavern 
+
+SillyTavern（简称 ST，中文俗称酒馆）是一个常用的使用 LLM 进行聊天的界面。
+
+## 其它教程
+
+!!! important 
+
+    因为文档主要的作者没有用过这些教程，所以不负责这些内容的支持服务。
+    
+    在参照这些教程的时候如果遇到问题，请咨询教程的原始作者，或在注明来源的情况下，询问你的其他朋友。
