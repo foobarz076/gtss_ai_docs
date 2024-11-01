@@ -30,7 +30,7 @@
 打开下载 Node.js 预构建安装程序的页面： 
 [https://nodejs.org/zh-cn/download/prebuilt-installer](https://nodejs.org/zh-cn/download/prebuilt-installer)
 
-![](../../_assets/basics/nodejs_01.png)
+![](../_assets/basics/nodejs_01.png)
 
 * 第一个选项选择你的操作系统。
 * 第二个选项选择你的电脑 CPU 的体系结构，除非你家境殷实用了搭载骁龙处理器的 Windows 电脑（那你选”ARM64“），否则都该选”x64“。

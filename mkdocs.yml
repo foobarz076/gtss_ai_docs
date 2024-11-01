@@ -1,4 +1,5 @@
-site_name: Foooo
+site_name: AI 巨大娘会梦见电子小人吗
+site_url: https://gtss-ai-docs.barz.foo
 
 copyright: <p xmlns:cc="http://creativecommons.org/ns#" >Unless otherwise declared, this work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
 
@@ -24,7 +25,7 @@ nav:
       - "Google Gemini": chatting/api_connection/gemini.md
       - "辅助工具":
         - "Clewd": 
-          - "下载和安装": chatting/api_connection/clewd/clewd.md
+          - "下载和运行 Clewd": chatting/api_connection/clewd/clewd.md
           - "注册 Claude 帐号": chatting/api_connection/clewd/account.md
           - "订阅 Claude Pro": chatting/api_connection/clewd/pro.md
           - "获取 Cookie": chatting/api_connection/clewd/cookie.md
@@ -48,6 +49,7 @@ extra_css:
   - stylesheets/extra.css
 
 plugins:
+  - privacy
   - search
 
 markdown_extensions:
@@ -69,6 +71,9 @@ theme:
   name: material
   language: zh
   features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
     - navigation.footer
     - navigation.tabs
     - navigation.sections
@@ -79,5 +84,31 @@ theme:
     - search.share
     - toc.follow
   palette:
-    primary: orange
-    accent: amber
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+
+repo_url: https://github.com/foobarz076/gtss_ai_docs
+repo_name: foobarz076/gtss_ai_docs
