@@ -25,6 +25,8 @@
 directory $ command
 ```
 
+于是在上面的例子中，你需要复制的就是 `$` 后面的 `command` 命令。
+
 ## 参与贡献
 
 此文档通过 Mkdocs 生成，同时使用 Material 主题。
