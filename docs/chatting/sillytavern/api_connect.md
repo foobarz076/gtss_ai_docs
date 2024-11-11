@@ -44,7 +44,7 @@ SillyTavern 可以与两种类型的 AI 交互：
 
 !!! warning "仅适用于 OpenAI Platform"
 
-    Azure OpenAI Service 的密钥并不能在这里使用。你也许需要使用 oai-reverse-proxy 或是 one-api 之类的中间层工具转换为兼容 OpenAPI 的格式。
+    Azure OpenAI Service 的密钥并不能在这里使用。你也许需要使用 oai-reverse-proxy 或是 one-api 之类的中间层工具转换为兼容 OpenAI API 的格式。
 
 ![](../../_assets/sillytavern/api_openai.png)
 
@@ -55,7 +55,7 @@ SillyTavern 可以与两种类型的 AI 交互：
 
 !!! warning "仅适用于 Anthropic Console"
 
-    Google Vertex AI 和 Amazon Bedrock 的密钥并不能在这里使用。你也许需要使用 oai-reverse-proxy 或是 one-api 之类的中间层工具转换为兼容 OpenAPI 的格式。
+    Google Vertex AI 和 Amazon Bedrock 的密钥并不能在这里使用。你也许需要使用 oai-reverse-proxy 或是 one-api 之类的中间层工具转换为兼容 OpenAI API 的格式。
 
     除此以外 Clewd 不是在这里用。Slack和Poe的Cookie在这里也不起作用。
 

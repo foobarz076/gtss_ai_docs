@@ -153,7 +153,45 @@ module.exports = {
  */
 ```
 
+稍后你就可以运行了：
 
+```bash
+Clewd $ bash start.sh
+```
+```text title="这是输出"
+up to date in 418ms
+clewd修改版 v4.8(11) by tera
+http://127.0.0.1:8144/v1
+
+AllSamples: false
+Artifacts: false
+ClearFlags: true
+FullColon: true
+LogMessages: true
+NoSamples: false
+PassParams: true
+PreserveChats: true
+PreventImperson: true
+PromptExperiments: true
+RenewAlways: true
+RetryRegenerate: false
+SkipRestricted: false
+StripAssistant: false
+StripHuman: false
+Superfetch: true
+SystemExperiments: true
+padtxt: 1000,1000,15000
+xmlPlot: true
+
+superfetch [found] bin/clewd-superfetch-linux-amd64
+
+(index: 1) Logged in {
+  name: 'xxxxxxxx',
+  mail: 'xxxxxxxx@gmail.com',
+  cookieModel: 'claude-3-5-sonnet-20241022',
+  capabilities: [ 'claude_pro', 'chat', [length]: 2 ]
+}
+```
 ## 附： Clewd 的设置列表
 
 !!! info

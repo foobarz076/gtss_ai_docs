@@ -62,6 +62,8 @@ SillyTavern $ npm install --no-audit --no-fund --loglevel=error --no-progress --
 up to date in 899ms
 ```
 
+在每次更新酒馆后，你最好也更新一下依赖（再次运行上面的命令）以避免可能会发生的意外情况。
+
 ## 启动
 
 !!! tips
@@ -69,9 +71,12 @@ up to date in 899ms
     在 Windows 上，你也可以通过双击 `SillyTavern` 目录中的 `start.bat` 来运行。
 
 ```bash
-# 这两个命令的效果几乎是一样的。
+# 这两个命令的效果几乎是一样的。区别就是下面的命令会帮你运行上一步。
 SillyTavern $ node server.js
+# Termux
 SillyTavern $ ./start.sh
+# Windows 终端（PowerShell）
+SillyTavern $ .\start.bat
 ```
 
 ```text title="这是输出"
