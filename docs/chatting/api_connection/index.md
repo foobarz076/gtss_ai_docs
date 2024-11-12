@@ -26,13 +26,22 @@
 * 如果你有 OpenAI 支持区域的手机号码和银行卡，可以自行开设 OpenAI API 帐号： https://openai.com/api/pricing/
 * 退而求其次，如果你有带 VISA/Mastercard 或是 American Express 标志的国际信用卡/借记卡，可以尝试 OpenAI 东家微软 Azure 下的 Azure OpenAI Service 服务：https://azure.microsoft.com/zh-cn/products/ai-services/openai-service
 
-[Azure OpenAI Service](#){ .md-button }
+[前往 OpenAI Platform](#){ .md-button }
+[前往 Azure AI Studio](#){ .md-button }
+[详细步骤](#){ .md-button }
 
 ## Anthropic 模型（Claude）
+
+!!! info "文档部分内容暂缓更新"
+
+    因为 Anthropic 收紧了给 Google Cloud 和 AWS Bedrock 上 Claude 的配额。主要表现为不能申请开通，或者开通之后没有配额等等。因此这两部分内容暂时停更。
+
 * 如果你有 Anthropic 支持区域的手机号码和银行卡，可以自行开设 Anthropic Console 帐号：https://www.anthropic.com/pricing#anthropic-api
 * 退而求其次，如果你有带 VISA/Mastercard 或是 American Express 标志的国际信用卡/借记卡，可以尝试通过 AWS Bedrock（https://aws.amazon.com/bedrock/claude/ ）或 Google Vertex AI （https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude?hl=zh-cn ）使用 Claude 模型。
 
-[Anthropic Console](#){ .md-button }
+[前往 Anthropic Console](https://console.anthropic.com/dashboard){ .md-button }
+[详细步骤](anthropic.md){ .md-button }
+
 
 !!! tips "通过 Vertex API 在 SillyTavern 使用 Claude?"
 
@@ -46,5 +55,5 @@
 * 对于 IP 位于 Gemini 支持的区域（因为众所周知的原因，肯定没有香港，有完全不可靠的消息说 Google 没有阻止中国大陆的 IP 连接 Gemini API，但是 Google 在中国大陆早就全线被墙了），且不是欧洲经济区，英国或瑞士的话，Gemini 提供免费层级，虽然配额卡的很紧但应该也够用。脸皮够厚还有手段的话，注册一堆 Google 帐号来回去嫖也是可以的。
 * 如果你有带 VISA/Mastercard 或是 American Express 标志的国际信用卡/借记卡，通过关联有付款资料的 Google Cloud 项目，你的 API 便是付费层级了。付费层级的定价在： https://ai.google.dev/pricing?hl=zh-cn 。以及虽然不一定都会相信，[但 Google 说免费层级调用的输入会用于改进产品的提示和响应，付费层级则不会。](https://ai.google.dev/gemini-api/terms?hl=zh-cn)
 
+[前往 Google AI Studio](https://aistudio.google.com){ .md-button }
 [详细步骤](#){ .md-button }
-[前往 Google AI Studio](#){ .md-button }

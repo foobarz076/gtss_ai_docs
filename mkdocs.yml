@@ -20,8 +20,8 @@ nav:
         - "Azure OpenAI Service": chatting/api_connection/azure.md
       - "Claude":
         - "Anthropic Console": chatting/api_connection/anthropic.md
-        - "Google Vertex AI": chatting/api_connection/vertex.md
-        - "Amazon Bedrock": chatting/api_connection/bedrock.md
+        # - "Google Vertex AI": chatting/api_connection/vertex.md
+        # - "Amazon Bedrock": chatting/api_connection/bedrock.md
       - "Google Gemini": chatting/api_connection/gemini.md
       - "辅助工具":
         - "Clewd": 
@@ -53,6 +53,7 @@ extra_css:
 plugins:
   - privacy
   - search
+  - glightbox
 
 markdown_extensions:
   - pymdownx.highlight:

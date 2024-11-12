@@ -41,15 +41,16 @@
 
 SillyTavern（简称 ST，中文俗称酒馆）是一个常用的使用 LLM 进行聊天的界面。
 
-[更多介绍](#){ .md-button }
-[安装和运行](#){ .md-button }
-[建立用户设定](#){ .md-button }
-[导入角色](#){ .md-button }
-[导入其它文件](#){ .md-button }
+[更多介绍](sillytavern/index.md){ .md-button }
+[安装和运行](sillytavern/install.md){ .md-button }
+[导入角色](sillytavern/get_char.md){ .md-button }
+[导入预设](sillytavern/get_preset.md){ .md-button }
+[导入其它文件](sillytavern/get_resource.md){ .md-button }
+[开始聊天](sillytavern/chat.md){ .md-button }
 
-[其它常见问题](#){ .md-button }
-[官方文档 (英文)](#){ .md-button }
-[GitHub 仓库](#){ .md-button }
+[其它常见问题](sillytavern/faq.md){ .md-button }
+[官方文档 (英文)](https://docs.sillytavern.app){ .md-button }
+[GitHub 仓库](https://github.com/SillyTavern/SillyTavern){ .md-button }
 
 ## 其它教程
 

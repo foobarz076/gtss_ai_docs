@@ -69,7 +69,16 @@ SillyTavern 可以与两种类型的 AI 交互：
 
     但本文档中依然跟随酒馆官方的称呼，称它们为“聊天预设”。
 
-## 开始聊天
+[详细步骤](get_preset.md){ .md-button }
+
+## 取得其它资源
+
+例如附加世界书，正则表达式和快速回复脚本等等。
+
+[详细步骤](get_resource.md){ .md-button }
+[开始聊天](chat.md){ .md-button }
+
+
 
 ## 其它资源
 
