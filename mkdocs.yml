@@ -54,6 +54,7 @@ plugins:
   - privacy
   - search
   - glightbox
+  - offline
 
 markdown_extensions:
   - pymdownx.highlight:
