@@ -9,7 +9,7 @@ nav:
   - "基础知识": 
     - basic/index.md
     - "术语表": basic/terms.md
-    - "Node.JS": basic/nodejs.md
+    - "Node.js": basic/nodejs.md
     - "Termux": basic/termux.md
   - "聊天": 
     - "聊天工具和知识概览": chatting/index.md
