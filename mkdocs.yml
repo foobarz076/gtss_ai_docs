@@ -17,7 +17,7 @@ nav:
       - "概览": chatting/api_connection/index.md
       - "OpenAI":
         - "OpenAI Platform": chatting/api_connection/oai.md
-        - "Azure OpenAI Service": chatting/api_connection/azure.md
+        # - "Azure OpenAI Service": chatting/api_connection/azure.md
       - "Claude":
         - "Anthropic Console": chatting/api_connection/anthropic.md
         # - "Google Vertex AI": chatting/api_connection/vertex.md
