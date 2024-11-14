@@ -61,12 +61,20 @@ SillyTavern 可以与两种类型的 AI 交互：
 
 ![](../../_assets/sillytavern/api_claude.png)
 
+* 聊天补全来源选择 ”Claude“。
+* 将你获得的 API 密钥填入 "Claude API 密钥“内。
+
 ### Claude （clewd） 
+
+!!! warning "你现在并不需要通过 Clewd 连接 Claude API"
+
+    Clewd 虽然支持 API 模式，但你通常**不需要这样用**。
 
 ![](../../_assets/sillytavern/api_clewd.png)
 
 * 聊天补全来源选择 ”自定义（兼容 OpenAI）“。
 * 自定义端点（基本 URL）填入你 clewd 的地址，例如 `http://127.0.0.1:8444/v1` 。
+* 如果你因为各种原因要使用 Clewd 的 API 模式， 将你获得的 Claude API 密钥填入 "自定义 API 密钥“内。
 
 ### Google Gemini
 
