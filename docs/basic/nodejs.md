@@ -43,7 +43,7 @@
 你需要的只是运行一行命令：
 
 ```bash
-pkg install nodejs-lts
+$ pkg install nodejs-lts
 ```
 
 ## 配置 Node.js 使用其它 NPM 存储库
