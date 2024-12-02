@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 MIRROR_BASE_DIR="/data/data/com.termux/files/usr/etc/termux/mirrors"
 TERMUX_HOME="/data/data/com.termux/files/home"
 

@@ -14,7 +14,7 @@
 
     值得注意的是，虽然 World Info 有助于引导 AI 找到所需内容，但它并不能保证其出现在生成的输出消息中。这取决于您的模型利用附加信息的能力！
 
--- [World Info | docs.ST.app ](https://docs.sillytavern.app/usage/worldinfo/)
+    -- [World Info | docs.ST.app ](https://docs.sillytavern.app/usage/worldinfo/)
 
 ### 调整世界信息/知识书激活设置
 
@@ -36,7 +36,7 @@
         定义应在聊天历史记录中扫描多少条消息来获取激活世界书条目的关键字。
 
         * 如果设置为 0，则只扫描世界书条目本身和作者注释。
-        * 如果设置为 1，那么 SillyTavern 只扫描最后一条消息。
+        * 如果设置为 1，那么 Sillytavern 只扫描最后一条消息。
         * 2 = 最后两条消息，等等。
   
     !!! warning "扫描深度不是越多越好"

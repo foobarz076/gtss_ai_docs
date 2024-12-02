@@ -13,6 +13,7 @@ nav:
     - "Termux": basic/termux.md
   - "聊天": 
     - "聊天工具和知识概览": chatting/index.md
+    - "预防欺诈": chatting/avoid_scamming.md
     - "取得 API 密钥":
       - "概览": chatting/api_connection/index.md
       - "OpenAI":
@@ -36,9 +37,11 @@ nav:
         - "酒馆简介": chatting/sillytavern/index.md
         - "聊天快速上手":
           - "安装": chatting/sillytavern/install.md
+          - "杂鱼用一键脚本":
+            - "Termux": chatting/sillytavern/termux_deployment_script/index.md
           - "连接到 LLM": chatting/sillytavern/api_connect.md
           - "获取角色卡和关联信息": chatting/sillytavern/get_char.md
-          - "获取聊天预设": chatting/sillytavern/get_preset.md
+          - "获取对话补全预设": chatting/sillytavern/get_preset.md
           - "获取其它周边信息": chatting/sillytavern/get_resource.md
           - "开始聊天": chatting/sillytavern/chat.md
           - "常见问题": chatting/sillytavern/faq.md

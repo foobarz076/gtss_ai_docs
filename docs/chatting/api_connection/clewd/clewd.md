@@ -119,7 +119,7 @@ module.exports = {
         "NoSamples": false,
         "StripAssistant": false,
         "StripHuman": false,
-        "PassParams": true,
+        "PassParams": false,
         "ClearFlags": true,
         "PreserveChats": false,
         "LogMessages": true,
