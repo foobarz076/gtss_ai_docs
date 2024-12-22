@@ -7,8 +7,8 @@ nav:
   - "首页":
     - index.md
   - "基础知识": 
-    - basic/index.md
-    - "术语表": basic/terms.md
+    - "首页": basic/index.md
+    - "Git": basic/git.md
     - "Node.js": basic/nodejs.md
     - "Termux": basic/termux.md
   - "聊天": 
@@ -44,11 +44,12 @@ nav:
           - "获取对话补全预设": chatting/sillytavern/get_preset.md
           - "获取其它周边信息": chatting/sillytavern/get_resource.md
           - "开始聊天": chatting/sillytavern/chat.md
-          - "常见问题": chatting/sillytavern/faq.md
+        - "常见问题": chatting/sillytavern/faq.md
   # - "绘画":
   #   - drawing/index.md
-  # - "其它资源":
-  #   - resources/index.md
+  - "其它资源":
+    - resources/index.md
+    - "提问的智慧": resources/ask.md
 
 extra_css:
   - stylesheets/extra.css

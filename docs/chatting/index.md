@@ -29,7 +29,7 @@
 
 * Cookie
 
-[Claude](#){ .md-button }
+[Claude (通过 Clewd）](api_connection/clewd/clewd.md){ .md-button }
 
 ### 使用 Clewd
 一种利用网页版 Claude 发出比网页提供的更具灵活性的请求的方式。需要提前获得 Claude 网页版应用的 Cookie。
