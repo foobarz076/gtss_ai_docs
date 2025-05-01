@@ -45,7 +45,7 @@
 
     本文档中对的所有修改均指 SillyTavern 根目录 (`/SillyTavern/config.yaml`) 中的修改，而不是默认配置文件(`/SillyTavern/default/config.yaml`)。
 
-用你用起来最顺手的编辑器打开 SillyTavern 的配置文件（`config.yaml`），找到其中的 `listen` 字段，把它的值修改成 `true` ，
+用你用起来最顺手的编辑器打开 SillyTavern 的配置文件（`config.yaml`），找到其中的 `listen` 字段，把它的值修改成 `true` ，`
 就像这样：
 
 ```yaml
