@@ -55,6 +55,9 @@ SillyTavern（简称 ST，中文俗称酒馆）是一个常用的使用 LLM 进�
 [导入其它文件](sillytavern/get_resource.md){ .md-button }
 [开始聊天](sillytavern/chat.md){ .md-button }
 
+[局域网访问](sillytavern/lan_access.md){ .md-button }
+[通用VOS云端部署](sillytavern/cloud_deploy/vps.md){ .md-button }
+
 [其它常见问题](sillytavern/faq.md){ .md-button }
 [官方文档 (英文)](https://docs.sillytavern.app){ .md-button }
 [GitHub 仓库](https://github.com/SillyTavern/SillyTavern){ .md-button }

@@ -81,7 +81,9 @@ SillyTavern 可以与两种类型的 AI 交互：
 [详细步骤](get_resource.md){ .md-button }
 [开始聊天](chat.md){ .md-button }
 
-
+## 局域网访问和云端部署
+[局域网访问](lan_access.md){ .md-button }
+[通用VOS云端部署](cloud_deploy/vps.md){ .md-button }
 
 ## 其它资源
 

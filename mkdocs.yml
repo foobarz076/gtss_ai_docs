@@ -49,6 +49,8 @@ nav:
           - "获取其它周边信息": chatting/sillytavern/get_resource.md
           - "开始聊天": chatting/sillytavern/chat.md
         - "局域网连接": chatting/sillytavern/lan_access.md
+        - "云端部署":
+          - "普通的 VPS 部署": chatting/sillytavern/cloud_deploy/vps.md
         - "常见问题": chatting/sillytavern/faq.md
   - "绘画":
     - drawing/index.md
