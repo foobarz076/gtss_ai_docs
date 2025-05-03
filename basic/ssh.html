@@ -1,0 +1,3731 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gtss-ai-docs.barz.foo/basic/ssh.html">
+      
+      
+        <link rel="prev" href="git.html">
+      
+      
+        <link rel="next" href="nodejs.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.6">
+    
+    
+      
+        <title>OpenSSH - AI 巨大娘会梦见电子小人吗</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="../assets/external/unpkg.com/iframe-worker/shim.js"></script>
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ssh" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="AI 巨大娘会梦见电子小人吗" class="md-header__button md-logo" aria-label="AI 巨大娘会梦见电子小人吗" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI 巨大娘会梦见电子小人吗
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenSSH
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/foobarz076/gtss_ai_docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    foobarz076/gtss_ai_docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="index.html" class="md-tabs__link">
+          
+  
+  基础知识
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chatting/index.html" class="md-tabs__link">
+          
+  
+  聊天
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../drawing/index.html" class="md-tabs__link">
+          
+  
+  绘画
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../resources/index.html" class="md-tabs__link">
+          
+  
+  其它资源
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AI 巨大娘会梦见电子小人吗" class="md-nav__button md-logo" aria-label="AI 巨大娘会梦见电子小人吗" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI 巨大娘会梦见电子小人吗
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/foobarz076/gtss_ai_docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    foobarz076/gtss_ai_docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI 巨大娘会梦见电子小人吗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    基础知识
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            基础知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    工具
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="git.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OpenSSH
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ssh.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    OpenSSH
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么要用 SSH？这“魔法桥梁”好在哪？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-macos-openssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      在 Windows 和 macOS 上找到你的“魔法棒”——OpenSSH 客户端
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="在 Windows 和 macOS 上找到你的“魔法棒”——OpenSSH 客户端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-10-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      在 Windows 10 / 11 上
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接！第一次亲密接触
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="连接！第一次亲密接触">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本的连接命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一次连接的“灵魂拷问”：主机指纹
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      输入密码：为什么看不见？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      告别密码：使用 SSH 密钥登录
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="告别密码：使用 SSH 密钥登录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成你的密钥对
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      把“锁”放到服务器上：部署公钥
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="把“锁”放到服务器上：部署公钥">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-copy-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法一：使用 ssh-copy-id (推荐，如果可用)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法二：手动复制粘贴
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-in-with-the-private-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用私钥登录 (Logging In with the Private Key)**
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      偷懒小妙招：SSH 客户端配置文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="偷懒小妙招：SSH 客户端配置文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件在哪？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      怎么写？（基本结构）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="怎么写？（基本结构）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      给服务器起个外号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      指定默认信息：用户名、端口、密钥
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      多个服务器?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sshconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      表格：常用 ~/.ssh/config 选项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器安全加固：给你的“堡垒”加点防御
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="服务器安全加固：给你的“堡垒”加点防御">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      修改默认“门牌号”：更改 SSH 端口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root" class="md-nav__link">
+    <span class="md-ellipsis">
+      禁止“最高指挥官”直接登录：禁用 Root 登录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      强制使用密钥：禁用密码登录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-applying-changes-restarting-the-ssh-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      让配置生效：重启 SSH 服务 (Applying Changes: Restarting the SSH Service)**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sshd_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结表格：常用 sshd_config 安全加固选项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      疑难杂症？看这里！常见问题与解决方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="疑难杂症？看这里！常见问题与解决方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warning-remote-host-identification-has-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接时看到可怕的警告 "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied-publickey" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接时提示 "Permission denied (publickey)"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-timed-out-connection-refused" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接时提示 "Connection timed out" 或 "Connection refused"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      明明用了密钥，为什么还提示我输入密码/密码短语？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      更上一层楼：其他安全小贴士
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更上一层楼：其他安全小贴士">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#totp" class="md-nav__link">
+    <span class="md-ellipsis">
+      双重保险：TOTP 双因素认证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      防火墙：你的网络守门员
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPN 和隧道：更安全的“秘密通道
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VPN 和隧道：更安全的“秘密通道">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpn-virtual-private-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPN (Virtual Private Network, 虚拟专用网络)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-ssh-tunneling-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH 隧道 (SSH Tunneling / Port Forwarding)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      结语：恭喜你，SSH 大门已敞开！
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nodejs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="termux.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Termux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    服务
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            服务
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="domain.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    域名和 DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    聊天
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            聊天
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    聊天工具和知识概览
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/avoid_scamming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    预防欺诈
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    取得 API 密钥
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            取得 API 密钥
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OpenAI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            OpenAI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/oai.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenAI Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Claude
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Claude
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/anthropic.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anthropic Console
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/gemini.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Gemini
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    辅助工具
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            辅助工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_5_1" id="__nav_3_3_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Clewd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Clewd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/clewd.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    下载和安装 Clewd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/account.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    注册 Claude 帐号
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/pro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    订阅 Claude Pro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/cookie.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取 Cookie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clewd 常见问题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/oai_reverse_proxy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    oai-reverse-proxy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SillyTavern（酒馆）
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            SillyTavern（酒馆）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    酒馆简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    聊天快速上手
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            聊天快速上手
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/install.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2_2" id="__nav_3_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    杂鱼用一键脚本
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            杂鱼用一键脚本
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/termux_deployment_script/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Termux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/api_connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    连接到 LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/get_char.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取角色卡和关联信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/get_preset.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取对话补全预设
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/get_resource.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取其它周边信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/chat.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    开始聊天
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/lan_access.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    局域网连接
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_4" id="__nav_3_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    云端部署
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            云端部署
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/cloud_deploy/vps.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    普通的 VPS 部署
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常见问题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    绘画
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            绘画
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drawing/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI 绘画相关工具和知识概览
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    其它资源
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            其它资源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/ask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提问的智慧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么要用 SSH？这“魔法桥梁”好在哪？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-macos-openssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      在 Windows 和 macOS 上找到你的“魔法棒”——OpenSSH 客户端
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="在 Windows 和 macOS 上找到你的“魔法棒”——OpenSSH 客户端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-10-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      在 Windows 10 / 11 上
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接！第一次亲密接触
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="连接！第一次亲密接触">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本的连接命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一次连接的“灵魂拷问”：主机指纹
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      输入密码：为什么看不见？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      告别密码：使用 SSH 密钥登录
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="告别密码：使用 SSH 密钥登录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成你的密钥对
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      把“锁”放到服务器上：部署公钥
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="把“锁”放到服务器上：部署公钥">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-copy-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法一：使用 ssh-copy-id (推荐，如果可用)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法二：手动复制粘贴
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-in-with-the-private-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用私钥登录 (Logging In with the Private Key)**
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      偷懒小妙招：SSH 客户端配置文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="偷懒小妙招：SSH 客户端配置文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件在哪？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      怎么写？（基本结构）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="怎么写？（基本结构）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      给服务器起个外号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      指定默认信息：用户名、端口、密钥
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      多个服务器?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sshconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      表格：常用 ~/.ssh/config 选项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器安全加固：给你的“堡垒”加点防御
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="服务器安全加固：给你的“堡垒”加点防御">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      修改默认“门牌号”：更改 SSH 端口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root" class="md-nav__link">
+    <span class="md-ellipsis">
+      禁止“最高指挥官”直接登录：禁用 Root 登录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      强制使用密钥：禁用密码登录
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-applying-changes-restarting-the-ssh-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      让配置生效：重启 SSH 服务 (Applying Changes: Restarting the SSH Service)**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sshd_config" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结表格：常用 sshd_config 安全加固选项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      疑难杂症？看这里！常见问题与解决方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="疑难杂症？看这里！常见问题与解决方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warning-remote-host-identification-has-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接时看到可怕的警告 "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied-publickey" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接时提示 "Permission denied (publickey)"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-timed-out-connection-refused" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接时提示 "Connection timed out" 或 "Connection refused"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      明明用了密钥，为什么还提示我输入密码/密码短语？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      更上一层楼：其他安全小贴士
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更上一层楼：其他安全小贴士">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#totp" class="md-nav__link">
+    <span class="md-ellipsis">
+      双重保险：TOTP 双因素认证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      防火墙：你的网络守门员
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPN 和隧道：更安全的“秘密通道
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VPN 和隧道：更安全的“秘密通道">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpn-virtual-private-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPN (Virtual Private Network, 虚拟专用网络)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-ssh-tunneling-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH 隧道 (SSH Tunneling / Port Forwarding)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      结语：恭喜你，SSH 大门已敞开！
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ssh">玩转 SSH：你的第一份远程连接指南</h1>
+<p>嘿，你好呀！欢迎来到 SSH 的奇妙世界！你可能听说过这个词，或者在工作中看到别人用一些黑乎乎的窗口连接到遥远的电脑上敲命令。感觉很酷，但又有点神秘？别担心！这篇指南就是为你量身打造的。无论你是 Windows 用户还是 Mac 用户，只要你对电脑的基本操作有点感觉，我们就能一起轻松掌握 SSH 这个强大的工具。</p>
+<p>想象一下，你拥有了一台远在天边的超级计算机（我们称之为“服务器”），或者需要管理一台放在公司机房的机器。你怎么跟它“说话”呢？总不能每次都跑过去吧？SSH 就是那座连接你和远程服务器的“魔法桥梁”。准备好了吗？让我们一起出发，探索 SSH 的奥秘，成为远程连接小达人吧！</p>
+<h2 id="ssh_1">为什么要用 SSH？这“魔法桥梁”好在哪？</h2>
+<p>你可能会想，远程控制电脑嘛，我用过远程桌面软件，挺方便的呀，为啥还要用 SSH 这种看起来像是“命令行”的东西呢？问得好！SSH 之所以成为专业人士（比如程序员、系统管理员）的首选，主要有以下几个超级棒的理由：</p>
+<div class="admonition important">
+<p class="admonition-title">安全！安全！安全！</p>
+<ul>
+<li>
+<p>这是 SSH 最核心的优势。它的全称是 “Secure Shell”，中文意思是“安全外壳协议”。顾名思义，它建立的连接是<strong>加密</strong>的。
+    想象一下，你和服务器之间的对话，都被装进了一个“加密保险箱”里传输。就算有人在网络中途偷听（这种行为叫做“窃听”或“嗅探”），他们看到的也只是一堆乱码，完全无法理解你们在说什么。</p>
+<p>这就像是用一种只有你和服务器懂的秘密语言交流，极大地保护了你的数据，比如登录密码、传输的文件和执行的命令，不会被泄露。</p>
+<p>相比之下，一些老的协议（比如 Telnet、FTP）传输数据时是“裸奔”的（明文传输），非常不安全。</p>
+</li>
+<li>
+<p>SSH 不仅仅加密内容，它还能保证数据在传输过程中<strong>没有被篡改</strong>（数据完整性）。
+  如果有人试图在中间修改你的命令或者服务器返回的结果，SSH 能够侦测到这种“小动作”并发出警告或中断连接。</p>
+</li>
+<li>它还有<strong>身份验证</strong>机制，确保你连接的是真正的目标服务器，而不是别人伪装的“冒牌货”（防止中间人攻击）。同时，服务器也需要验证你的身份，确认你有权限访问。</li>
+</ul>
+</div>
+<div class="admonition tips">
+<p class="admonition-title">轻巧高效，节省资源</p>
+<ul>
+<li>SSH 主要提供的是一个<strong>文本界面</strong>（命令行或 Shell）。相比于需要传输大量图形数据的远程桌面（GUI，Graphical User Interface），SSH 连接占用的网络带宽非常非常少。这意味着即使在网络状况不太好的情况下，SSH 连接通常也能保持流畅。  </li>
+<li>在服务器端，运行 SSH 服务（sshd）占用的计算资源（CPU、内存）也远低于运行一个完整的图形桌面环境。对于服务器来说，每一分资源都很宝贵，用 SSH 意味着可以把更多的资源留给真正重要的服务程序。 </li>
+</ul>
+</div>
+<div class="admonition tips">
+<p class="admonition-title">自动化操作的神器"</p>
+<ul>
+<li>SSH 可以和你电脑上的<strong>脚本</strong>（比如 Shell Script、Python 脚本等）完美结合。你可以编写脚本，通过 SSH 自动登录到一批服务器上，执行相同的命令、更新软件、备份数据、检查状态等等，极大地提高了工作效率。</li>
+<li>想象一下，管理成百上千台服务器，如果手动一台台操作，那简直是噩梦，但有了 SSH 和脚本，可能点一下运行就搞定了！  </li>
+</ul>
+</div>
+<div class="admonition tips">
+<p class="admonition-title">无处不在，兼容性强</p>
+<ul>
+<li>SSH 协议历史悠久（OpenSSH 最早版本发布于 1999 年），几乎所有的现代操作系统，包括 Linux、macOS，甚至 Windows，都内置了 SSH 客户端或可以轻松安装。</li>
+<li>你甚至可以在路由器、物联网设备等小型嵌入式系统上找到 SSH 的身影 。这种广泛的兼容性意味着你可以在各种设备上使用 SSH 连接你的服务器。</li>
+</ul>
+</div>
+<p>总而言之，SSH 就像是瑞士军刀，集安全、高效、自动化于一身，是远程管理服务器的不二之选！</p>
+<div class="admonition success">
+<p class="admonition-title">太棒了！你已经了解了为什么要使用 SSH，这可是非常重要的一步！知道了它的好处，接下来学习具体操作就会更有动力啦！</p>
+</div>
+<h2 id="windows-macos-openssh">在 Windows 和 macOS 上找到你的“魔法棒”——OpenSSH 客户端</h2>
+<p>好消息是，现在主流的 Windows 和 macOS 系统都自带了 OpenSSH 客户端，我们不需要额外安装什么复杂的软件，只需要找到那个可以输入命令的“小窗口”就行。</p>
+<h3 id="windows-10-11">在 Windows 10 / 11 上</h3>
+<ul>
+<li>OpenSSH 客户端通常是<strong>默认安装</strong>的 。你可以通过以下方式确认和使用它：  </li>
+<li><strong>检查是否安装:</strong>  <ul>
+<li>打开“设置” (Settings)。  </li>
+<li>点击“应用” (Apps)。  </li>
+<li>点击“可选功能” (Optional features)。  </li>
+<li>在“已安装功能” (Installed features) 列表中查找 “OpenSSH 客户端” (OpenSSH Client)。如果找到了，就说明已经安装好了。  </li>
+<li>如果没找到，点击上方的“添加功能” (Add a feature) 或 “查看功能” (View features)，搜索 “OpenSSH Client”，然后点击“安装” (Install)。  </li>
+</ul>
+</li>
+<li><strong>打开命令工具:</strong> 你有两个常用的选择：  <ul>
+<li><strong>命令提示符 (Command Prompt):</strong> 按下 Win 键，输入 cmd，然后按回车 。  </li>
+<li><strong>PowerShell:</strong> 按下 Win 键，输入 powershell，然后按回车 。  </li>
+<li><strong>Windows Terminal (推荐):</strong> 如果你安装了 Windows Terminal（可以从 Microsoft Store 获取），它是一个更现代、功能更强大的终端工具，可以同时打开命令提示符、PowerShell 等多种 Shell。  </li>
+</ul>
+</li>
+<li>
+<p><strong>验证:</strong> 在打开的命令提示符或 PowerShell 窗口中，输入 <code>ssh</code> 然后按回车。如果你看到一堆关于 ssh 命令用法的信息（比如 <code>usage: ssh...</code>），那就说明 SSH 客户端已经准备就绪了！28  </p>
+</li>
+<li>
+<p><strong>在 macOS 上:</strong><br />
+ macOS 基于 Unix，天生就内置了强大的 OpenSSH 客户端，你只需要找到“终端” (Terminal) 这个应用。  </p>
+</li>
+<li>
+<p><strong>打开终端 (Terminal):</strong> 你可以通过以下几种方式找到它：  </p>
+</li>
+<li><strong>Spotlight 搜索 (最快):</strong> 按下 Command + 空格键，输入 Terminal，然后按回车。  </li>
+<li><strong>Launchpad（启动台）:</strong> 点击 Dock 上的 Launchpad 图标（像火箭那个），在搜索框输入 Terminal，或者在“其他” (Other) 或 “实用工具” (Utilities) 文件夹里找到它。  </li>
+<li><strong>Finder（访达）:</strong> 打开 Finder，前往“应用程序” (Applications) 文件夹，然后进入“实用工具” (Utilities) 文件夹，双击“终端” (Terminal)。  </li>
+<li><strong>验证:</strong> 终端打开后，你直接就可以使用 <code>ssh</code> 命令了。你可以输入 <code>ssh -V</code> (注意是大写的 V) 然后按回车，如果它显示了 OpenSSH 的版本信息（例如 OpenSSH_8.6p1, LibreSSL 3.3.6），那就说明一切正常 。</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">干得漂亮！你已经成功找到了在你的操作系统上使用 SSH 的入口！就像找到了开启魔法大门的钥匙一样。接下来，我们就要用这把钥匙去连接远程服务器了！</p>
+</div>
+<h2 id="_1">连接！第一次亲密接触</h2>
+<p>现在，我们有了客户端工具，也知道了目标服务器的地址，是时候发起连接了！</p>
+<h3 id="_2">基本的连接命令</h3>
+<ul>
+<li>打开你的终端（Windows 的命令提示符/PowerShell，或 macOS 的终端）。  </li>
+<li>输入以下命令格式，并按回车：<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>ssh<span class="w"> </span>username@hostname
+</span></code></pre></div></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>将 <code>username</code> 替换成你在远程服务器上的用户名。  </li>
+<li>将 <code>hostname</code> 替换成远程服务器的 IP 地址或域名 。  </li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">例如</p>
+<ul>
+<li>如果用户名是 myuser，服务器 IP 是 198.51.100.1，命令就是：<code>ssh myuser@198.51.100.1</code>  </li>
+<li>如果用户名是 admin，服务器域名是 myserver.example.com，命令就是：<code>ssh admin@myserver.example.com</code></li>
+</ul>
+</div>
+<h3 id="_3">第一次连接的“灵魂拷问”：主机指纹</h3>
+<p>当你<strong>第一次</strong>连接到一个新的 SSH 服务器时，你的客户端会显示一条类似这样的信息:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>The<span class="w"> </span>authenticity<span class="w"> </span>of<span class="w"> </span>host<span class="w"> </span><span class="s1">&#39;myserver.example.com (198.51.100.1)&#39;</span><span class="w"> </span>can<span class="err">&#39;</span>t<span class="w"> </span>be<span class="w"> </span>established.<span class="w">  </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ECDSA<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is<span class="w"> </span>SHA256:d029f87e3d80f8fd9b1be67c7426b4cc1ff47b4a9d0a84.<span class="w">  </span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Are<span class="w"> </span>you<span class="w"> </span>sure<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span><span class="w"> </span>connecting<span class="w"> </span><span class="o">(</span>yes/no/<span class="o">[</span>fingerprint<span class="o">])</span>?
+</span></code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">这是什么意思？</p>
+<p>这不是错误，而是一个<strong>安全提示</strong>！SSH 服务器有一对特殊的密钥，叫做<strong>主机密钥</strong>（Host Key），包括一个公钥和一个私钥 。当你连接时，服务器会把它自己的<strong>公钥</strong>发给你 。为了方便你核对，客户端会把这个长长的公钥计算成一个短一点的、独一无二的“指纹”（Fingerprint），就是上面例子里的 SHA256:d029f87e3d80f... 这串东西 。  </p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">为什么重要？</p>
+<p>这个指纹就像是服务器的“身份证”。第一次连接时，你的电脑并不知道这个服务器是不是“真的”。有可能一个坏蛋（我们叫他“中间人”）在网络中途冒充了你的服务器，想骗取你的密码或者偷看你的数据 。  </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">你应该怎么做？</p>
+<ol>
+<li><strong>核对指纹 (Verify the Fingerprint):</strong> 最安全的方法是，通过一个<strong>可靠的、带外的方式</strong>（比如服务器提供商的控制面板、电话、或者已经确认安全的途径）获取这台服务器的<strong>真实主机指纹</strong> 。然后仔细比对你屏幕上显示的指纹和你知道的真实指纹是否<strong>完全一致</strong>。  </li>
+<li><strong>确认连接 (Confirm Connection):</strong> 如果指纹<strong>一致</strong>，说明你连接的是正确的服务器。这时，输入 <code>yes</code> 并按回车。你的 SSH 客户端会把这个服务器的主机公钥（以及它的指纹）保存到一个叫做 <code>known_hosts</code> 的文件里（通常在 Windows 的 <code>C:\Users\YourUsername\.ssh\known_hosts</code> 或 macOS/Linux 的 <code>~/.ssh/known_hosts</code>）。  </li>
+<li><strong>如果指纹不一致或无法核对怎么办？</strong> <strong>千万不要</strong>轻易输入 yes！这可能意味着你正在遭受中间人攻击。你应该停止连接，并联系服务器管理员确认情况。  </li>
+</ol>
+<p>一旦你接受了某个服务器的主机指纹并保存到 <code>known_hosts</code> 文件后，下次再连接<strong>同一台服务器</strong>时，SSH 客户端会自动比对。如果服务器发来的公钥和本地保存的不一致，客户端会发出一个<strong>非常严重</strong>的警告（类似 @@@@@@@@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @@@@@@@@），并阻止你连接 。这通常意味着服务器重装了系统、更换了主机密钥，或者<strong>真的有中间人攻击</strong>！这时必须查明原因才能继续。  </p>
+</div>
+<h3 id="_4">输入密码：为什么看不见？</h3>
+<p>当你确认主机指纹（或后续直接连接）后，如果服务器配置了密码登录，它会提示你输入密码：<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>myuser@198.51.100.1<span class="err">&#39;</span>s<span class="w"> </span>password:
+</span></code></pre></div>
+这时你可能会发现，<strong>无论你怎么敲键盘，屏幕上都不会显示任何东西</strong>——没有星号（*），没有圆点，什么都没有。  </p>
+<div class="admonition tip">
+<p class="admonition-title">别慌！这是正常的</p>
+<p>这也是一个安全措施 。目的是防止旁边有人通过“偷瞄”（Shoulder Surfing）你的屏幕，或者通过观察你输入了多少个字符来猜测你的密码长度 。虽然看起来有点反直觉，但请相信你的键盘输入是有效的。  </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">怎么做？</p>
+<p>继续输入你的密码，然后<strong>直接按回车</strong>。如果密码正确，你就能成功登录到服务器的命令行界面了！如果输错了，它会提示你密码错误，让你重新输入。</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">哇！你成功地和远程服务器建立了第一次连接！还学会了验证主机指纹和输入密码的“小秘密”。这感觉是不是很棒？你已经掌握了 SSH 最基本也是最常用的操作了！</p>
+</div>
+<h2 id="ssh_2">告别密码：使用 SSH 密钥登录</h2>
+<p>每次连接都输密码是不是有点烦？而且，密码容易被猜到或者被暴力破解（就是程序不停地尝试各种密码组合）。有一种更安全、更方便的方式：<strong>SSH 密钥对认证</strong> 。</p>
+<div class="admonition info">
+<p class="admonition-title">密钥对是什么？公钥与私钥 "</p>
+<p>SSH 密钥认证基于一种叫做“非对称加密”的技术 。你需要生成一对密钥：一个<strong>公钥 (Public Key)</strong> 和一个<strong>私钥 (Private Key)</strong> 。<br />
+<em> </em><em>公钥 (Public Key):</em><em> 就像一把</em><em>打开的锁</em><em> 。你可以把这把锁复制很多份，然后把它交给任何你信任的、允许你进入的“地方”（比如你的 SSH 服务器）。公钥是</em><em>可以公开</em><em>的，给别人看到也没关系 。<br />
+</em> <strong>私钥 (Private Key):</strong> 就像是<strong>唯一能打开那把锁的钥匙</strong> 。这把钥匙<strong>必须由你本人严格保管，绝对不能泄露给任何人</strong> 。私钥是你身份的证明。<br />
+<em> </em><em>工作原理 (How it Works):</em><em> 当你尝试用密钥登录服务器时，服务器会用你放在它那里的公钥（锁）给你发一个“挑战”（比如加密一段随机信息）。只有拥有对应私钥（钥匙）的你才能成功“解开”这个挑战（解密信息并发回正确的回应）。服务器看到你成功解开了，就知道你是这把锁（公钥）的主人，于是就放你进去了 。整个过程中，你的私钥（钥匙）</em><em>永远不会离开你的电脑</em>*，不会在网络上传输，所以非常安全 。  </p>
+</div>
+<h3 id="_5">生成你的密钥对</h3>
+<p>在你的<strong>本地电脑</strong>（Windows 或 macOS）上打开终端或命令提示符/PowerShell。运行以下命令：  </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><code>ssh-keygen</code> 是生成密钥的工具 。</li>
+<li><code>-t ed25519</code> 指定了密钥的加密算法。ed25519 是目前比较推荐的一种，安全又高效。
+  如果你的系统比较老，不支持 ed25519，可以换成 -t rsa -b 4096 来生成一个 4096
+  位的RSA 密钥，这也是非常安全的 。</li>
+</ul>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>ssh-keygen<span class="w"> </span><span class="se">\-</span>t<span class="w"> </span>ed25519
+</span></code></pre></div>
+<p>接下来，它会问你几个问题：  </p>
+<ol>
+<li>
+<p><strong>保存密钥的位置 (Enter file in which to save the key):</strong><br />
+    它会建议一个默认位置：  </p>
+<ul>
+<li>Windows: <code>%USERPROFILE%\.ssh\id_ed25519</code> (或 <code>id_rsa</code>)  </li>
+<li>macOS/Linux: <code>~/.ssh/id\_ed25519</code> (或 <code>id_rsa</code>)<br />
+<strong>直接按回车接受默认位置</strong>通常是最好的选择，除非你已经有同名的密钥了或者有特殊需求 。如果你需要创建多个密钥对，可以给它起个别的名字，比如 <code>~/.ssh/my_server_key</code>。  </li>
+</ul>
+</li>
+<li>
+<p><strong>设置密码短语 (Enter passphrase (empty for no passphrase):):</strong> 
+    这一步是<strong>可选但强烈推荐</strong>的！。  </p>
+<ul>
+<li><strong>什么是密码短语 (Passphrase)?</strong> 它就像是给你的私钥文件加了一道额外的密码锁。即使有人偷走了你的私钥文件，如果不知道这个密码短语，他也无法使用这个私钥 。  </li>
+<li><strong>要不要设置？</strong> 为了安全，<strong>强烈建议设置一个强密码短语</strong>！你可以输入一个不容易猜到的密码，然后按回车。它会让你再输入一遍确认。   </li>
+<li>如果你想图方便，完全不设置密码短语，可以直接按回车跳过。但这意味着一旦私钥文件泄露，别人就能直接用它登录你的服务器，风险较大 。 </li>
+</ul>
+</li>
+<li>
+<p>完成后，<code>ssh-keygen</code> 会告诉你密钥已生成，并显示密钥的指纹和一个有趣的“随机艺术图像”（randomart image），这些主要是用来识别密钥的，通常不用太在意 。  </p>
+</li>
+</ol>
+<p>现在，在你指定的目录下（默认是 <code>~/.ssh/</code> 或 <code>%USERPROFILE%\.ssh\</code>），你会找到两个文件：<br />
+<em> <code>id_ed25519</code> (或 <code>id_rsa</code>，或者你自定义的名字)：这是你的</em><em>私钥</em><em>，</em><em>打死也不能给别人看！</em><em><br />
+</em> <code>id_ed25519.pub</code> (或 <code>id_rsa.pub</code>，或者你自定义的名字 + .pub)：这是你的<strong>公钥</strong>，等下我们要把它放到服务器上 。  </p>
+<h3 id="_6">把“锁”放到服务器上：部署公钥</h3>
+<p>现在要把你的公钥（<code>id_ed25519.pub</code> 或 <code>id_rsa.pub</code> 文件的<strong>内容</strong>）添加到你想登录的服务器上，放到目标用户家目录下的一个特定文件里：<code>~/.ssh/authorized\_keys</code> 。这个文件就像一个“授权名单”，里面列出了所有被允许通过密钥登录这个账户的公钥。  </p>
+<div class="admonition info">
+<p class="admonition-title">你必须在服务器上有权限才能执行这个操作。通常，你需要用密码登录一次服务器。</p>
+</div>
+<h4 id="ssh-copy-id">方法一：使用 ssh-copy-id (推荐，如果可用)</h4>
+<p><code>ssh-copy-id</code> 是一个专门用来做这件事的便捷工具，它会自动帮你把公钥追加到服务器的 <code>authorized_keys</code> 文件，并设置好正确的权限 。  </p>
+<div class="admonition info">
+<p class="admonition-title">Windows 中作为可选功能安装的 OpenSSH 客户端有可能没有这个命令</p>
+<ul>
+<li><strong>在 macOS/Linux 上</strong> 这个命令通常是自带的 。如果你的 Mac 版本较老可能没有，可以尝试用 Homebrew 安装 (<code>brew install ssh-copy-id</code>) 。  </li>
+<li><strong>在 Windows 上:</strong> Windows 自带的 OpenSSH 客户端<strong>通常不包含</strong> ssh-copy-id 。你可以：  <ul>
+<li>使用 WSL (Windows Subsystem for Linux)，在 WSL 环境里通常有这个命令。  </li>
+<li>使用 Git Bash，它可能也带了这个命令。  </li>
+<li>或者直接用下面的手动方法。  </li>
+</ul>
+</li>
+</ul>
+</div>
+<p>它的用法大致如此:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/your_public_key.pub<span class="w"> </span>username@hostname
+</span></code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><code>-i \~/.ssh/your\_public\_key.pub</code>：指定你要复制的<strong>公钥</strong>文件。如果你的公钥是默认的 <code>id\_ed25519.pub 或 id\_rsa.pub</code>，并且位于默认的 <code>\~/.ssh/</code> 目录下，-i 参数甚至可以省略 。  </li>
+<li><code>username@hostname</code>：目标服务器的用户名和地址。  </li>
+</ul>
+</div>
+<ul>
+<li>执行后，它会提示你输入目标服务器上相应用户的<strong>密码</strong>（通常你只需要再这一次）。输入密码后，它就会自动完成公钥的上传和配置 。  </li>
+</ul>
+<h4 id="_7">方法二：手动复制粘贴</h4>
+<p>如果 ssh-copy-id 不可用，或者你想了解背后发生了什么，可以手动操作：  </p>
+<ol>
+<li><strong>在本地电脑上，显示并复制你的公钥内容。</strong>  </li>
+<li>Windows (命令提示符): <code>type %USERPROFILE%\.ssh\id_ed25519.pub</code>  </li>
+<li>Windows (PowerShell): <code>Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub</code></li>
+<li>macOS/Linux: <code>cat ~/.ssh/id_ed25519.pub</code></li>
+<li>执行命令后，会输出一长串以 ssh-ed25519 或 ssh-rsa 开头的字符。<strong>完整地选中并复制</strong>这一整行文本。  </li>
+<li><strong>登录到你的远程服务器</strong> (这时可能还需要用密码登录)。  </li>
+<li><strong>在服务器上，确保 ~/.ssh 目录存在并且权限正确。</strong>  </li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li><code>mkdir \-p</code> 会创建目录，如果目录已存在则什么也不做 。  </li>
+<li><code>chmod 700 \~/.ssh</code> 设置目录权限，只有你自己能读、写、进入这个目录，这是 SSH 的安全要求 。</li>
+</ul>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span><span class="se">\-</span>p<span class="w"> </span><span class="se">\~</span>/.ssh<span class="w">  </span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span><span class="se">\~</span>/.ssh
+</span></code></pre></div>
+<ol>
+<li><strong>将你复制的公钥内容追加到 ~/.ssh/authorized_keys 文件中。</strong>  </li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>用你刚才复制的公钥字符串替换 "粘贴你复制的公钥内容在这里" 。  </li>
+<li>这里的 echo 命令后面用的是 <code>\&gt;\&gt;</code> (两个大于号)，表示追加内容到文件末尾。如果你用 <code>\&gt;</code> (一个大于号)，会覆盖掉文件里原有的所有内容，可能会导致其他已授权的密钥失效！</li>
+<li><code>chmod 600 \~/.ssh/authorized\_keys</code> 设置文件权限，只有你自己能读写这个文件，这也是 SSH 的安全要求 。 </li>
+</ul>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;粘贴你复制的公钥内容在这里&quot;</span><span class="w"> </span><span class="se">\&gt;\&gt;</span><span class="w"> </span><span class="se">\~</span>/.ssh/authorized<span class="se">\_</span>keys<span class="w">  </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span><span class="se">\~</span>/.ssh/authorized<span class="se">\_</span>keys
+</span></code></pre></div>
+<ol>
+<li><strong>退出服务器。</strong>  </li>
+</ol>
+<h3 id="logging-in-with-the-private-key">使用私钥登录 (Logging In with the Private Key)**</h3>
+<p>现在，公钥已经在服务器上就位了。尝试再次连接服务器：<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>ssh<span class="w"> </span>username@hostname
+</span></code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">如果你的私钥在默认位置 (<code>\~/.ssh/id\_ed25519</code> 或 <code>id\_rsa</code>)</p>
+<ul>
+<li>如果你<strong>没有</strong>为私钥设置密码短语，那么恭喜你！你应该会直接登录成功，不再需要输入任何密码了！</li>
+<li>如果你<strong>设置了</strong>密码短语，它会提示你输入密码短语:
+  <code>Enter passphrase for key '/path/to/your/private\_key':</code>。
+  输入正确的密码短语后，即可登录。虽然还是要输入东西，但这比输入容易泄露的账户密码要安全得多。后面会提到如何让电脑在一段时间内“记住”密码短语。  </li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">如果你的私钥<strong>不在</strong>默认位置，或者你想明确指定使用哪个私钥，可以使用 -i 选项</p>
+<ul>
+<li>例如，如果你的私钥文件是 <code>~/.ssh/my_server_key</code>，可以这样连接：<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>ssh<span class="w"> </span><span class="se">\-</span>i<span class="w"> </span>/path/to/your/private<span class="se">\_</span>key<span class="w"> </span>username@hostname
+</span></code></pre></div></li>
+<li>如果你在 Windows 上使用 PowerShell，路径分隔符是反斜杠（\），而不是正斜杠（/）。所以路径应该是 <code>C:\Users\YourUsername\.ssh\my_server_key</code> 。</li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">文件权限的重要性</p>
+<p>SSH 对安全性要求非常严格。如果你的<strong>私钥文件</strong> (<code>id\_ed25519</code> 或 <code>id\_rsa</code>) 或者服务器上的 <code>\~/.ssh</code> 目录、<code>\~/.ssh/authorized\_keys</code> 文件权限设置得“太宽松”（比如允许其他人读取或写入），SSH 会认为这不安全，并<strong>拒绝</strong>使用密钥进行认证，转而提示你输入密码（或者直接失败，如果服务器不允许密码登录）。  </p>
+<ul>
+<li>本地私钥文件 (<code>\~/.ssh/id\_ed25519 或 id\_rsa):</code>chmod 600 ~/.ssh/your_private_key` (只有你自己能读写) </li>
+<li>服务器上的 ~/.ssh 目录: <code>chmod 700 ~/.ssh</code> (只有你自己能读、写、进入)</li>
+<li>服务器上的 ~/.ssh/authorized_keys 文件: <code>chmod 600 ~/.ssh/authorized_keys</code> (只有你自己能读写) </li>
+<li>服务器上的用户家目录 (~) 不能对组或其他用户有写入权限 (例如 <code>chmod 755 ~</code> 或 <code>chmod go-w ~</code>) 。</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">难以置信！你已经成功配置了 SSH 密钥登录！这是专业人士常用的方式，不仅更安全，而且（尤其是不设密码短语或使用 Agent 时）更方便。你已经掌握了 SSH 的核心技能之一！为你鼓掌！</p>
+</div>
+<h2 id="ssh_3">偷懒小妙招：SSH 客户端配置文件</h2>
+<p>每次连接都要输入 <code>ssh myuser@long-and-ugly-hostname.com -p 2222 -i ~/.ssh/my_server_key</code> 这样的长命令，是不是还是有点麻烦？尤其是当你需要管理很多台服务器的时候。别担心，SSH 客户端提供了一个强大的“快捷方式”文件，让你一劳永逸！</p>
+<p>这个文件就是 <code>config</code> 文件，它位于你的 SSH 配置目录中 。</p>
+<h3 id="_8">文件在哪？</h3>
+<ul>
+<li><strong>macOS 和 Linux:</strong> 通常是 <code>~/.ssh/config</code> 。  </li>
+<li><strong>Windows (使用自带 OpenSSH):</strong> 通常是 <code>%USERPROFILE%\.ssh\config</code> (也就是 <code>C:\Users\YourUsername\.ssh\config</code>) 。  </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">在这个时候，这个文件可能<strong>默认不存在</strong>，你需要<strong>手动创建</strong>它</p>
+<ul>
+<li>在 macOS/Linux 的终端: 
+    <code>touch ~/.ssh/config</code> 然后 <code>chmod 600 ~/.ssh/config</code> 。  </li>
+<li>在 Windows: 
+    你可以在 <code>.ssh</code> 目录下（如果 <code>.ssh</code> 目录不存在也需要先创建）右键新建一个文本文档，然后将其重命名为 <code>config</code> （确保<strong>没有</strong> <code>.txt</code> 后缀！）。设置权限确保只有你自己能读写也是个好习惯 。  </li>
+</ul>
+</div>
+<h3 id="_9">怎么写？（基本结构）</h3>
+<ul>
+<li>这个文件是纯文本文件，你可以用任何文本编辑器打开编辑（比如 macOS 的 TextEdit，Windows 的 Notepad，或者 VS Code 等代码编辑器）。  </li>
+<li>它的基本结构是按“块”组织的，每个块以 <code>Host</code> 关键字开头，后面跟着一个你自定义的<strong>别名</strong>（就是你以后想用来代替长命令的短名字）。  </li>
+<li>在 <code>Host</code> 下面，<strong>缩进</strong>写上这个别名对应的各种连接选项，一行一个。  </li>
+<li>空行和以 # 开头的行是注释，会被忽略 。  </li>
+</ul>
+<h4 id="_10">给服务器起个外号</h4>
+<p><code>Host</code> 关键字定义了一个配置块，并为你想要连接的服务器指定了一个<strong>别名</strong> 。这个别名就是你以后在命令行里输入 ssh 后面的那个短名字。它可以是任何你觉得方便记忆的名字，比如 work-server, my-vps, pi 等等。  </p>
+<div class="admonition info">
+<p class="admonition-title">例子</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Host myserver  
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    HostName 198.51.100.1
+</span></code></pre></div>
+在保存段设置以后，你只需要输入 <code>ssh myserver</code> 就可以连接到 198.51.100.1 了！是不是很方便？</p>
+</div>
+<h4 id="_11">指定默认信息：用户名、端口、密钥</h4>
+<p>在一个 <code>Host</code> 块里，最常用的几个选项是：<br />
+  * <code>HostName</code>: 指定服务器<strong>实际的 IP 地址或完整的域名</strong> 。如果你的 <code>Host</code> 别名和实际地址不一样，就需要用这个选项。<br />
+  * <code>User</code>: 指定连接这个服务器时<strong>默认使用的用户名</strong> 。<br />
+  * <code>Port</code>: 指定服务器 SSH 服务监听的<strong>端口号</strong>，如果不是默认的 22 端口，就需要在这里指定 。<br />
+  * <code>IdentityFile</code>: 指定连接这个服务器时要使用的<strong>私钥文件路径</strong> 。路径可以用 ~ 代表家目录（macOS/Linux）或 %USERPROFILE% 代表用户配置文件夹（Windows）。例如 <code>~/.ssh/my_key</code> 或 <code>%USERPROFILE%\.ssh\my_key</code>。  </p>
+<div class="admonition info">
+<p class="admonition-title">另一个例子</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Host webserver  
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    HostName 198.51.100.5  
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    User admin  
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    Port 2222  
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    IdentityFile `~/.ssh/webserver_key`  
+</span></code></pre></div>
+<p>现在，当你输入 <code>ssh webserver</code> 时，SSH 客户端会自动帮你转换成 <code>ssh admin@198.51.100.5 -p 2222 -i ~/.ssh/webserver_key</code> 。是不是超级方便！  </p>
+</div>
+<h4 id="_12">多个服务器?</h4>
+<p>你可以在 config 文件里添加任意多个 <code>Host</code> 块，每个对应一台服务器或一组服务器 。用空行把它们隔开就好。<br />
+<em> 你可以在 <code>Host</code> 别名中使用通配符 * (匹配任意字符) 和 ? (匹配单个字符) 。<br />
+</em> 一个非常有用的技巧是在配置文件的<strong>最后</strong>（这一点很重要！）放一个 <code>Host *</code> 块 。这个块匹配所有主机，你可以在里面设置一些全局默认值，比如默认的用户名，或者默认关闭某些不常用的功能（如 X11 转发 <code>ForwardX11 no</code> 3）。  </p>
+<div class="admonition note">
+<p class="admonition-title">留意 SSH 读取和应用配置文件的顺序</p>
+<p>SSH 读取配置文件时，会应用<strong>所有</strong>匹配 <code>Host</code> 的块，但是对于同一个选项（比如 User），它只采用<strong>第一个</strong>匹配到的块里的值 。</p>
+<p>所以，你的配置应该<strong>从最具体到最通用</strong>排列，把 <code>Host *</code> 放在最后面。  </p>
+</div>
+<ul>
+<li>有时，你可能有很多个 SSH 密钥（比如公司一个，个人项目一个，GitHub 一个）。当你连接服务器时，SSH 客户端可能会尝试用它知道的所有密钥去登录，直到有一个成功为止 。
+  但有些服务器比较严格，如果你尝试了太多次错误的密钥，它可能会直接拒绝你的连接，报“Too many authentication failures”错误 。
+  为了避免这种情况，你可以在 <code>Host</code> 块里加上 <code>IdentitiesOnly yes</code> 。这告诉 SSH 客户端：“嘿，连接这个服务器时，<strong>只用</strong>我在 IdentityFile 里指定的那个密钥，别去试其他的了（包括默认密钥或者 ssh-agent 里的密钥）。” 这能确保你总是用正确的密钥去尝试连接。  </li>
+</ul>
+<h4 id="sshconfig">表格：常用 <code>~/.ssh/config</code> 选项</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">选项</th>
+<th style="text-align: left;">作用</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Host</code></td>
+<td style="text-align: left;">定义一个配置块，并指定连接时使用的别名</td>
+<td style="text-align: left;">Host myserver</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>HostName</code></td>
+<td style="text-align: left;">指定服务器实际的 IP 地址或域名</td>
+<td style="text-align: left;">HostName 198.51.100.5</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>User</code></td>
+<td style="text-align: left;">指定连接时使用的用户名</td>
+<td style="text-align: left;">User admin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Port</code></td>
+<td style="text-align: left;">指定 SSH 服务器的端口号（如果不是 22）</td>
+<td style="text-align: left;">Port 2222</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>IdentityFile</code></td>
+<td style="text-align: left;">指定用于认证的私钥文件路径</td>
+<td style="text-align: left;">IdentityFile <code>~/.ssh/webserver_key</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>IdentitiesOnly yes</code></td>
+<td style="text-align: left;">强制 SSH 只使用 IdentityFile 指定的密钥</td>
+<td style="text-align: left;">IdentitiesOnly yes</td>
+</tr>
+</tbody>
+</table>
+<p>这个配置文件简直是管理多台服务器的福音！它不仅让你少打很多字，还能帮你记住那些复杂的服务器地址、端口号和特定的密钥文件，大大提高了效率和便利性。花点时间设置好它，绝对物超所值！</p>
+<div class="admonition success">
+<p class="admonition-title">是不是很简单？有了这个配置文件，连接服务器就像给朋友打电话一样方便！你真是越来越厉害了！</p>
+</div>
+<p>不过，我们的服务器也需要保护，下一节我们来给它加点“防盗门”！</p>
+<h2 id="_13">服务器安全加固：给你的“堡垒”加点防御</h2>
+<p>到目前为止，我们主要关注的是如何在你的电脑（客户端）上使用 SSH。但是，连接的另一端——服务器——的安全也同样重要，甚至更重要！服务器就像你的数字城堡，我们需要给它加固城墙，防止不速之客闯入。</p>
+<p>负责处理 SSH 连接请求的服务器端程序叫做 <code>sshd</code> (SSH Daemon) 。它的行为是由一个主要的配置文件控制的，这个文件通常位于 <code>/etc/ssh/sshd\_config</code> 。</p>
+<div class="admonition important">
+<p class="admonition-title">修改配置文件的注意事项</p>
+<ul>
+<li>修改服务器配置文件通常需要<strong>管理员权限</strong>（比如使用 sudo 命令）。  </li>
+<li>修改服务器配置<strong>有风险</strong>，如果改错了可能会导致你无法再通过 SSH 连接到服务器！  </li>
+<li><strong>强烈建议</strong>在修改前<strong>备份</strong>原始配置文件。通常只需要一个简单的 <code>cp</code> 命令就可以了：<br />
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span>/etc/ssh/sshd_config.bak
+</span></code></pre></div></li>
+<li>修改后，<strong>强烈建议</strong>先用 <code>sudo sshd -t</code> 命令<strong>测试</strong>配置文件语法是否正确。如果没有任何输出，说明语法没问题；如果报错，则需要根据错误提示修正 。  </li>
+<li>确认无误后，需要<strong>重启或重新加载</strong> SSH 服务才能让更改生效（后面会提到命令）。</li>
+</ul>
+</div>
+<p>下面介绍几个常见的、能有效提升 SSH 服务器安全性的基本配置：</p>
+<h3 id="ssh_4">修改默认“门牌号”：更改 SSH 端口</h3>
+<div class="admonition info">
+<p class="admonition-title">某些时候可能其它人已经帮你代劳了</p>
+<ul>
+<li>有些云服务商（比如 AWS、Google Cloud）会在创建实例时自动帮你修改 SSH 端口，或者提供一个默认的非 22 端口。  </li>
+<li>如果你使用的是这些服务，可能不需要手动修改。可以先检查一下 <code>/etc/ssh/sshd_config</code> 文件，看看 <code>Port</code> 设置成什么了。</li>
+</ul>
+</div>
+<p>我们知道，SSH 默认监听的是 <strong>22 端口</strong> 。就像大家都知道你家门牌号是 22 号一样，全世界的扫描器和攻击脚本也都知道要优先扫描 22 端口，寻找可以攻击的 SSH 服务器 。  </p>
+<ul>
+<li><strong>为什么改？</strong> 把 SSH 端口从 22 改成一个不常用的端口（比如 2222，或者 1024 以上的其他端口），就像是把门牌号换成一个别人不知道的号码。这样做并不能阻止那些下定决心要攻击你、并且会扫描所有端口的“专业大盗”，但它能有效地<strong>避开</strong>绝大多数漫无目的、只扫描默认端口的<strong>自动化扫描和低级攻击</strong> 。最直接的好处是，你的服务器日志会清净很多，不会被大量的无效登录尝试淹没。  </li>
+<li>
+<p><strong>局限性：</strong> 再次强调，这是一种“<strong>安全靠隐藏</strong>”（Security through obscurity）的策略，它提高了被“偶然发现”的门槛，但<strong>不是根本性的安全增强</strong> 。真正的安全还需要依赖后面提到的强认证方式和防火墙等。  </p>
+</li>
+<li>
+<p><strong>如何修改？</strong>  </p>
+<ol>
+<li>用管理员权限编辑 <code>/etc/ssh/sshd_config</code> 文件 (例如 <code>sudo nano /etc/ssh/sshd_config</code>)。  </li>
+<li>找到类似 <code>#Port 22</code> 这样的一行（可能被 <code>#</code> 注释掉了）。  </li>
+<li>去掉行首的 <code>#</code> （取消注释）。  </li>
+<li>把 22 修改成你想要的新端口号，比如 。确保这个端口号没有被其他服务占用，通常建议选择 1024 到 65535 之间的端口 。
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a># 假如你想要的端口是 2222  
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Port 2222
+</span></code></pre></div></li>
+<li>保存文件并退出编辑器。  </li>
+</ol>
+</li>
+<li>
+<p><strong>客户端影响：</strong> 改完端口后，你再用 <code>ssh username@hostname</code> 就连不上了！你需要告诉 SSH 客户端新的端口号，方法有二：  </p>
+</li>
+<li>在连接时加上 -p 参数：<code>ssh username@hostname -p 2222</code> 。  </li>
+<li>在你的本地 <code>~/.ssh/config</code> 文件对应的 <code>Host</code> 块里加上一行：<code>Port 2222</code> 。  </li>
+</ul>
+<h3 id="root">禁止“最高指挥官”直接登录：禁用 Root 登录</h3>
+<ul>
+<li>在 Linux 和类 Unix 系统中，<code>root</code> 用户是拥有至高无上权限的“超级管理员”，可以对系统做任何事情。  </li>
+<li><strong>为什么禁用？</strong> 直接允许 <code>root</code> 用户通过 SSH 登录是非常危险的 。原因很简单：攻击者<strong>知道</strong> <code>root</code> 这个用户名是<strong>一定存在</strong>的 。这样一来，他们只需要猜测或者破解 <code>root</code> 用户的密码或密钥就可以了，攻击目标非常明确。如果禁止 <code>root</code> 直接登录，攻击者就必须先猜出一个<strong>存在的普通用户名</strong>，然后再去破解这个用户的密码或密钥，难度大大增加 。  </li>
+<li>
+<p><strong>更好的实践：</strong> 更安全的做法是，平时使用一个<strong>普通用户</strong>账号通过 SSH 登录，当需要执行管理员命令时，再使用 <code>sudo</code> 命令临时提升权限 。这样做不仅更安全，而且 <code>sudo</code> 的操作通常会被记录下来，方便审计追踪是谁做了什么操作 。  </p>
+</li>
+<li>
+<p><strong>如何修改？</strong>  </p>
+<ol>
+<li>编辑 <code>/etc/ssh/sshd_config</code> 文件。  </li>
+<li>找到包含 <code>PermitRootLogin</code> 的那一行。它可能被注释掉了，或者设置成了 <code>yes</code>、<code>prohibit-password</code> (或旧版的 <code>without-password</code>) 等。  </li>
+<li>将它的值修改为 <code>no</code>：
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>PermitRootLogin no  
+</span></code></pre></div></li>
+<li>保存文件。  </li>
+</ol>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">那默认的<code>prohibit-password</code> 是什么？</p>
+<ul>
+<li><code>prohibit-password</code> 允许 <code>root</code> 用户登录，但<strong>仅限于使用 SSH 密钥</strong>，禁止使用密码登录 <code>root</code> 。  </li>
+<li>这比直接允许密码登录要安全，但对于新手来说，直接设置为 <code>no</code> 是最简单也通常是更安全的选择。  </li>
+<li>如果你已经配置了 SSH 密钥登录，并且希望保留 <code>root</code> 登录权限，可以考虑使用这个选项。</li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">这个选项不会影响通过 <code>passwd</code> 命令锁定 <code>root</code> 用户的功能。</p>
+<ul>
+<li>如果你已经锁定了 <code>root</code> 用户（例如通过 <code>passwd -l root</code>），那么即使设置了 <code>PermitRootLogin yes</code>，也无法通过 SSH 登录 <code>root</code> 。  </li>
+<li>但是，如果你没有锁定 <code>root</code> 用户，设置 <code>PermitRootLogin no</code> 仍然是一个很好的安全措施。 </li>
+</ul>
+</div>
+<h3 id="_14">强制使用密钥：禁用密码登录</h3>
+<ul>
+<li>我们已经知道 SSH 密钥比密码安全得多 。那么，为了最大化安全性，我们可以<strong>完全禁用</strong>密码登录方式，强制所有用户<strong>必须</strong>使用 SSH 密钥登录 。这是<strong>强烈推荐</strong>的一个安全加固措施，可以有效抵御密码暴力破解攻击。  </li>
+</ul>
+<div class="admonition failure">
+<p class="admonition-title">错误的设置将导致你无法登录！</p>
+<ul>
+<li><strong>！！！极其重要！！！</strong> 在执行这一步之前，请<strong>务必确保</strong>你已经为<strong>所有需要登录的用户</strong>（包括你自己！）成功配置并<strong>测试</strong>了 SSH 密钥登录。否则，一旦禁用了密码登录，而密钥又没配好，你将<strong>彻底无法登录</strong>服务器！  </li>
+<li>如果你在禁用密码登录后发现无法登录，可以尝试使用控制台访问或其他方式恢复 SSH 配置。  </li>
+<li>如果你使用的是云服务提供商（如 AWS、Google Cloud），可以通过它们的控制台访问实例，或者使用其他远程管理工具（如 VNC、RDP）来恢复 SSH 访问。</li>
+</ul>
+</div>
+<ul>
+<li><strong>如何修改？</strong>  <ol>
+<li>编辑 <code>/etc/ssh/sshd_config</code> 文件。  </li>
+<li>找到 <code>PasswordAuthentication</code> 这一行。它可能被注释掉了，或者默认是 <code>yes</code>。  </li>
+<li>将它的值修改为 <code>no</code>：
+     <code>text  
+     PasswordAuthentication no</code></li>
+<li>保存文件。  </li>
+</ol>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">在某些系统上，你可能也想禁用其它的密码认证方式</p>
+<ul>
+<li><code>ChallengeResponseAuthentication</code> 和 <code>KbdInteractiveAuthentication</code> 选项也可能需要禁用。  </li>
+<li>这两个选项通常与 <code>PasswordAuthentication</code> 一起使用，禁用它们可以进一步增强安全性。  </li>
+<li>如果你不确定，可以将它们的值设置为 <code>no</code>，或者直接注释掉它们（在行首加上 <code>#</code>）。</li>
+</ul>
+</div>
+<h3 id="ssh-applying-changes-restarting-the-ssh-service">让配置生效：重启 SSH 服务 (Applying Changes: Restarting the SSH Service)**</h3>
+<ul>
+<li>在你修改并保存了 <code>sshd_config</code> 文件，并且用 <code>sudo sshd -t</code> 检查确认语法无误后，你需要<strong>重启</strong> SSH 服务来加载新的配置。  </li>
+<li>常用的命令是（根据你的 Linux 发行版可能有所不同）：  </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">基于 systemd 的系统 (如较新的 Ubuntu, CentOS 7+, Debian 8+)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>sshd
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">基于 OpenRC 的系统 (如 Alpine Linux)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>rc-service<span class="w"> </span>sshd<span class="w"> </span>restart
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">基于 SysVinit 的系统 (如较旧的 Debian, Ubuntu, CentOS 6)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>sshd<span class="w"> </span>restart
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">基于 Upstart 的系统 (如较旧的 Ubuntu)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>initctl<span class="w"> </span>restart<span class="w"> </span>ssh
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">不同的守护进程可能会用不同的方式处理当前打开的链接</p>
+<ul>
+<li>有些 SSH 守护进程会在重启时关闭所有当前的连接，导致你被踢掉。在此之前请确保你已经保存了所有工作。  </li>
+<li>有些则会优雅地处理当前连接，允许你在重启后继续使用 SSH。（但旧的会话上并不会加载新的配置）这时你可以在一个新的终端窗口中测试新的配置。</li>
+</ul>
+</div>
+<h3 id="sshd_config">总结表格：常用 <code>sshd_config</code> 安全加固选项</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">选项 (Directive)</th>
+<th style="text-align: left;">推荐设置 (Recommended Setting)</th>
+<th style="text-align: left;">作用与理由 (Purpose &amp; Rationale)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Port</code></td>
+<td style="text-align: left;">非 22 的端口 (e.g., 2222)</td>
+<td style="text-align: left;">更改默认端口，减少被自动化扫描发现和攻击的几率</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PermitRootLogin</code></td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">禁止 root 用户直接通过 SSH 登录，强制使用普通用户+sudo，增加攻击难度并改善审计</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PasswordAuthentication</code></td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">禁用密码认证，强制使用更安全的密钥认证，防止密码猜测和暴力破解</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ChallengeResponseAuthentication</code> / <code>KbdInteractiveAuthentication</code></td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">配合 PasswordAuthentication no，彻底禁用所有键盘交互式密码输入</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">干得漂亮！你刚刚大大提升了服务器的安全性，就像给你的数字城堡加固了城墙！这可是系统管理员的重要技能哦！我们再了解一些其他的安全工具。</p>
+</div>
+<h2 id="_15">疑难杂症？看这里！常见问题与解决方法</h2>
+<p>在使用 SSH 的过程中，你可能会遇到一些小麻烦。别灰心，这很正常！就像学骑自行车，偶尔摔跤才能学会平衡。下面我们来看看几个常见的问题以及如何解决它们：</p>
+<h3 id="warning-remote-host-identification-has-changed">连接时看到可怕的警告 "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"</h3>
+<div class="admonition bug">
+<p class="admonition-title">症状</p>
+<p>当你尝试连接一个以前成功连接过的服务器时，SSH 客户端突然拒绝连接，并显示一大段以 @@@@@@@@ 开头的警告信息，告诉你远程主机的标识（Host Key）发生了变化 。</p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">一个典型的例子</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>It is also possible that a host key has just been changed.
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>The fingerprint for the RSA key sent by the remote host is
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>SHA256:6e:45:f9:a8:af:38:3d:a1:a5:c7:76:1d:02:f8:77:00.
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>Please contact your system administrator.
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>Add correct host key in /home/hostname /.ssh/known_hosts to get rid of this message.
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>Offending RSA key in /var/lib/sss/pubconf/known_hosts:4
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>RSA host key for pong has changed and you have requested strict checking.
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>Host key verification failed.
+</span></code></pre></div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">发生了什么？</p>
+<p>这个警告意味着，你本地电脑上 ~/.ssh/known_hosts 文件里保存的这台服务器的公钥指纹，和你这次连接时服务器发过来的公钥指纹不匹配了 。这通常有三种可能：</p>
+<ul>
+<li>正常情况：服务器真的变了，服务器管理员可能重装了操作系统，或者出于安全考虑重新生成了服务器的主机密钥 。这种情况下，变化是正常的。   </li>
+<li>异常情况：你可能连接到了一个不同的服务器，例如 IP 地址被重新分配了，或者你连接的域名指向了一个新的服务器。</li>
+<li>糟糕的情况（潜在的中间人攻击 ！）: 这是最需要警惕的情况！可能有攻击者在网络中途拦截了你的连接，伪装成你的目标服务器，并给你发送了一个假的公钥 。如果你不加确认就接受了这个假密钥并继续连接，你的密码或数据就可能被窃取！
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">解决方法</p>
+<p><strong>不要盲目连接！</strong> 看到这个警告，第一反应应该是停止连接。(一个 Ctrl+C 就可以了)
+<strong>联系管理员（也许就是你自己）</strong>: 如果你是连接到公司或组织的服务器，或者是你自己管理的服务器，第一步应该是联系服务器的管理员，确认这次变更是否正常 。如果是你自己管理的服务器，确认你是否真的重装了系统或重新生成了密钥。 
+<strong>验证新指纹</strong>: 通过可靠途径（如电话、已验证的通讯工具）获取新指纹后，与警告信息中显示的指纹进行比对。
+<strong>在确认无误后更新你的 known_hosts</strong>: 如果你确认这次变更是正常的，或者你已经验证了新的指纹是正确的，你可以安全地更新你的 known_hosts 文件。最简单的方法是使用 ssh-keygen -R 命令 。假设出问题的服务器地址是 myserver.example.com，在你的本地终端运行：
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>$<span class="w"> </span>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>myserver.example.com
+</span></code></pre></div>
+* 如果服务器是用 IP 地址连接的，就把命令里的域名换成 IP 地址。这个命令会自动找到并删除 known_hosts 文件里对应的那一行 。   </p>
+<div class="admonition note">
+<p class="admonition-title">手动修改 known_hosts 文件的方法</p>
+<ul>
+<li>如果你不想用 ssh-keygen 命令，或者你的 SSH 客户端不支持这个命令，你也可以手动删除对应的行。  </li>
+<li>找到 ~/.ssh/known_hosts 文件（Windows 上是 %USERPROFILE%.ssh\known_hosts），打开它，找到包含该服务器 IP 或域名的那一行（警告信息里通常会提示是第几行，例如 Offending key in /home/user/.ssh/known_hosts:15），然后删除整行 。</li>
+</ul>
+</div>
+<p><strong>重新连接 (Reconnect)</strong>: 删除旧密钥后，再次尝试连接，就像第一次连接一样，SSH 会像第一次连接一样，提示你接受新的主机指纹 。</p>
+</div>
+<h3 id="permission-denied-publickey">连接时提示 "Permission denied (publickey)"</h3>
+<div class="admonition bug">
+<p class="admonition-title">症状</p>
+<p>你尝试使用 SSH 密钥登录，但连接失败，并提示 Permission denied (publickey) 或类似的错误信息 。有时后面还会跟着 (publickey,password) 或其他方法，表示它尝试了密钥但失败了，然后可能会尝试密码（如果服务器允许的话）。
+   </p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">发生了什么？</p>
+<p>这个错误明确告诉你，服务器拒绝了你的公钥认证。常见原因包括：</p>
+<ul>
+<li>公钥未正确添加到服务器: 你本地的公钥内容没有被正确地添加到服务器上目标用户的 <code>~/.ssh/authorized_keys</code> 文件中 。可能是复制粘贴时出错（比如没复制完整、多了换行符等），或者根本就没添加。一个典型的错误是把私钥内容添加到了 authorized_keys 文件里，而不是公钥内容。（私钥是不能共享的！）</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">私钥是不能共享的！</p>
+<p>绝对不要在任何地方上传或分享你的私钥文件！私钥是你身份的唯一凭证，任何人都可以用它来登录你的服务器。请务必妥善保管，并确保它的权限设置正确。</p>
+</div>
+<ul>
+<li>文件/目录权限不正确: SSH 对权限非常敏感！服务器上的 ~ (家目录)、~/.ssh 目录，以及 ~/.ssh/authorized_keys 文件，或者你本地的私钥文件 (~/.ssh/id_rsa 等)权限设置过于宽松，都可能导致密钥认证失败 。这个时候你也许会在前几行看到类似 <code>WARNING: UNPROTECTED PRIVATE KEY FILE!</code>的警告信息。</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">一个典型的因此失败的例子</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Permissions 0644 for &#39;/Users/Foo/.ssh/your_bad_privkey&#39; are too open.
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>It is required that your private key files are NOT accessible by others.
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>This private key will be ignored.
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Load key &quot;/Users/Foo/.ssh/your_bad_privkey&quot;: bad permissions
+</span></code></pre></div>
+</div>
+<ul>
+<li>使用了错误的密钥对: 你本地 SSH 客户端尝试使用的私钥，与你添加到服务器 authorized_keys 里的公钥不是一对。这在你拥有多个密钥对时容易发生。</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">解决方法</p>
+<div class="admonition impiortant">
+<p class="admonition-title">出现这个问题的时候往往意味着你也无法使用密码登录</p>
+<p>你很有可能需要其它人的帮助来解决这个问题，或者使用控制台访问等其他方式登录服务器。</p>
+</div>
+<ul>
+<li><strong>提高ssh的调试级别</strong>: 在连接时加上 -v 参数（可以加到 -vvv 来提高调试级别），查看详细的连接日志，帮助你定位问题。比如：
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>$<span class="w"> </span>ssh<span class="w"> </span>-vvv<span class="w"> </span>username@hostname
+</span></code></pre></div></li>
+<li><strong>检查公钥是否正确添加到服务器</strong>: 如果你有其他方式（如控制台访问）登录到服务器，检查目标用户的 <code>~/.ssh/authorized_keys</code> 文件，确保你的公钥内容在里面，并且没有多余的换行或空格。可以用 <code>cat ~/.ssh/authorized_keys</code> 命令查看文件内容。</li>
+<li><strong>检查文件和目录权限</strong>: 确保服务器上的家目录、~/.ssh 目录，以及 ~/.ssh/authorized_keys 文件的权限设置正确。</li>
+</ul>
+</div>
+<h3 id="connection-timed-out-connection-refused">连接时提示 "Connection timed out" 或 "Connection refused"</h3>
+<div class="admonition bug">
+<p class="admonition-title">症状</p>
+<p>尝试连接时，等待很久后提示 Connection timed out，或者立刻提示 Connection refused 。   </p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">发生了什么？</p>
+<p>这类问题通常与网络连接或服务器状态有关，例如：</p>
+<ul>
+<li>服务器关机或网络不通: 目标服务器可能已关机，或者你的电脑与服务器之间的网络路径存在问题 。   </li>
+<li>主机名或 IP 地址错误: 你输入的服务器地址不正确 。   </li>
+<li>SSH 服务未运行: 服务器上负责监听 SSH 连接的 sshd 服务没有启动 。   </li>
+<li>防火墙拦截: 你本地电脑的防火墙，或者服务器上的防火墙（如 ufw, firewalld, iptables），或者网络中间的某个防火墙，阻止了 SSH 端口（默认为 22，或者你自定义的端口）的连接 。   </li>
+<li>端口号错误 (Incorrect Port): 如果服务器 SSH 运行在非标准端口，而你连接时没有指定正确的端口号 。 
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">解决方法</p>
+<ul>
+<li>检查服务器状态和网络: 确认服务器是否开机，网络是否正常。可以尝试 ping hostname 看是否能收到回应。</li>
+<li>核对地址和端口: 仔细检查你输入的服务器 IP 地址或域名是否准确无误。如果服务器使用了非标准端口，确保在连接时使用了 -p 参数或在 <code>~/.ssh/config</code> 中指定了正确的 Port 。   </li>
+<li>检查服务器 SSH 服务状态: 如果可能，通过其他方式（如服务器提供商的控制台）登录服务器，检查 sshd 服务是否正在运行。</li>
+<li>检查防火墙规则 (Check Firewall Rules): 这是最常见的原因之一。<ul>
+<li>服务器端: 检查服务器上的防火墙配置（ufw, firewalld, iptables 等），确保允许你尝试连接的 SSH 端口（例如 22 或自定义端口）上的入站 TCP 连接 。如果需要限制来源 IP，确保你的 IP 地址在允许列表中 。   </li>
+<li>客户端: 检查你本地电脑的防火墙或安全软件，确保没有阻止出站的 SSH 连接。</li>
+<li>网络设备: 如果你在公司或学校网络，可能需要联系网络管理员确认是否有网络层面的防火墙限制。</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="_16">明明用了密钥，为什么还提示我输入密码/密码短语？</h3>
+<div class="admonition bug">
+<p class="admonition-title">症状</p>
+<p>你已经设置了密钥登录，但连接时仍然被要求输入东西。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">如果 SSH 在询问你输入密码短语？</p>
+<div class="admonition quote">
+<p class="admonition-title">这个时候的提示大概像这个样子</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Enter passphrase for key &#39;/Users/Foo/.ssh/id_rsa&#39;:
+</span></code></pre></div>
+</div>
+<p>这通常是正常且预期的行为！它意味着你的私钥文件本身是加密的（你在生成密钥时设置了密码短语）。SSH 客户端需要这个密码短语来解密你的私钥，然后才能用它进行认证。这时输入你设置的那个密码短语即可登录 。注意，输入时屏幕同样不会显示任何字符 。</p>
+<div class="admonition tip">
+<p class="admonition-title">使用 ssh-agent 来缓存密码短语</p>
+<ul>
+<li>如果你不想每次都输入密码短语，可以使用 <code>ssh-agent</code> 来缓存它。  </li>
+<li>启动 <code>ssh-agent</code> 后，使用 <code>ssh-add</code> 命令将你的私钥添加到代理中。这样在连接时就不需要每次都输入密码短语了。  </li>
+<li>例如：
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="w">  </span><span class="c1"># 启动 ssh-agent</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>$<span class="w"> </span>ssh-add<span class="w"> </span>~/.ssh/id_rsa<span class="w">  </span><span class="c1"># 添加私钥到代理</span>
+</span></code></pre></div></li>
+</ul>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">如果 SSH 在询问你输入用户的密码？</p>
+<div class="admonition quote">
+<p class="admonition-title">这个时候的提示大概像这个样子</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>username@hostname&#39;s password:
+</span></code></pre></div>
+</div>
+<p>这意味着密钥认证失败了，SSH 客户端转而尝试了密码认证。这时需要排查并修复密钥认证的问题。一旦密钥认证能够成功，就不会再提示输入账户密码了。</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">遇到问题不要怕，多尝试、多检查，你总能找到解决方法的！就像解谜游戏一样，解决了一个难题，成就感满满！</p>
+</div>
+<h2 id="_17">更上一层楼：其他安全小贴士</h2>
+<p>你已经掌握了 SSH 的基础和一些关键的安全设置，非常了不起！不过，网络安全的世界是不断进化的，还有很多其他的技术可以用来进一步保护你的 SSH 服务器。这里简单介绍几种，让你心里有个数，知道还有哪些“高级装备”可以用。</p>
+<div class="admonition note">
+<p class="admonition-title">安全是一项“长期过程”</p>
+<ul>
+<li>这些技术并不是“万无一失”的解决方案，而是可以与 SSH 密钥和其他安全措施结合使用的额外保护层。  </li>
+<li>安全是一个不断演进的过程，随着技术的发展和攻击手段的变化，你可能需要定期审查和更新你的安全策略。  </li>
+<li>了解这些技术的基本概念和用途，可以帮助你在需要时做出更明智的决策。</li>
+</ul>
+</div>
+<h3 id="totp">双重保险：TOTP 双因素认证</h3>
+<ul>
+<li>双因素认证（Two-Factor Authentication, 2FA）或多因素认证（Multi-Factor Authentication, MFA）意味着登录时需要提供<strong>两种或以上</strong>不同类型的证明 。光有密码或密钥还不够，还需要第二把“钥匙”。  </li>
+<li><strong>TOTP 是什么？</strong> TOTP (Time-based One-Time Password，基于时间的一次性密码) 是 2FA 的一种常见实现方式 。你需要在手机上安装一个认证器 App（比如 Google Authenticator, Authy 等），并与服务器进行配对 。之后，这个 App 会每隔几十秒（通常是 30 秒）生成一个动态的 6 位数字验证码 。  </li>
+<li><strong>怎么用在 SSH 上？</strong> 配置好之后，当你通过 SSH 登录时，服务器在验证完你的密钥（或者密码，但不推荐）之后，会<strong>再</strong>要求你输入手机 App 上当前显示的那个 6 位验证码 。只有两步都验证通过，才能成功登录。  </li>
+<li><strong>好处？</strong> 即使你的密码被盗，或者私钥文件泄露（并且没有设置密码短语，或者密码短语也被破解了），攻击者没有你手机上的动态验证码，照样无法登录你的服务器 。这极大地增强了安全性。  </li>
+<li><strong>怎么配置？</strong> 这通常需要在服务器上安装额外的软件（比如 libpam-google-authenticator），修改 PAM (Pluggable Authentication Modules) 配置，并调整 <code>sshd_config</code> 文件（比如需要启用 ChallengeResponseAuthentication 或 KbdInteractiveAuthentication）。对新手来说稍微有点复杂，但效果显著。  </li>
+</ul>
+<h3 id="_18">防火墙：你的网络守门员</h3>
+<p>防火墙就像是你服务器所在网络的“保安”或“门卫” 。它的职责是检查所有进出服务器的网络数据包，并根据你设定的<strong>规则</strong>来决定是放行还是阻止 。规则可以基于来源 IP 地址、目标 IP 地址、端口号、协议类型等。<br />
+<em> </em><em>怎么帮 SSH？</em><em> 防火墙最常见的用途之一就是</em><em>限制</em><em>哪些 IP 地址可以访问你的 SSH 端口 。比如，你可以设置一条规则：“只允许来自我家里（或者公司）的固定 IP 地址访问服务器的 2222 端口（假设你改了端口），拒绝其他所有 IP 地址的访问请求。” 这样一来，即使全世界的黑客都知道你的服务器地址，只要他们不是从你允许的 IP 地址来的，防火墙就会直接把他们的连接请求挡在门外，他们连尝试登录的机会都没有！这能极大地缩小服务器的暴露面。<br />
+</em> <strong>常用工具：</strong> Linux 系统上常用的防火墙管理工具有：<br />
+  * ufw (Uncomplicated Firewall): Ubuntu 系统默认的防火墙工具，比较简单易用 。<br />
+  * firewalld: CentOS, RHEL, Fedora 等系统常用的防火墙工具，基于“区域”(zone) 的概念进行管理 。<br />
+  * iptables: 更底层、更强大的防火墙工具，配置相对复杂，但灵活性高 。
+  * 不过实际上，ufw 和 firewalld 都是基于 iptables 的封装，最终的规则还是会被转换成 iptables 规则来执行 。</p>
+<h3 id="vpn">VPN 和隧道：更安全的“秘密通道</h3>
+<h4 id="vpn-virtual-private-network">VPN (Virtual Private Network, 虚拟专用网络)</h4>
+<ul>
+<li><strong>这是什么？</strong> VPN 可以在你的设备和 VPN 服务器之间建立一个加密的“隧道” 。所有通过这个隧道的网络流量（包括你访问网站、收发邮件，当然也包括 SSH 连接）都会被加密保护 。  </li>
+<li><strong>怎么帮 SSH？</strong> 一个常见的安全策略是，<strong>不把 SSH 端口直接暴露在公网上</strong>。取而代之的是，你先连接到一个<strong>私有的 VPN 网络</strong>，只有成功连接到 VPN 之后，你才能从 VPN 网络内部访问你的 SSH 服务器 。这样，对于互联网上的其他人来说，你的 SSH 服务器是“隐形”的，大大提高了安全性 。这相当于给你的服务器加了一道需要特殊“通行证”（VPN 连接）才能进入的“护城河”。  </li>
+</ul>
+<h4 id="ssh-ssh-tunneling-port-forwarding">SSH 隧道 (SSH Tunneling / Port Forwarding)</h4>
+<ul>
+<li><strong>这是什么？</strong> SSH 不仅能让你远程执行命令，它本身也能创建加密的“隧道”，用来安全地传输<strong>其他应用程序</strong>的数据 。这叫做 SSH 端口转发或 SSH 隧道。  </li>
+<li><strong>有什么用？</strong> 假设你的服务器上运行着一个数据库服务，或者一个内部网站，出于安全考虑，这些服务只允许在服务器本机或者内部网络访问，没有直接对外开放端口。但是你想在你的本地电脑上使用图形化工具连接这个数据库，或者用浏览器访问那个内部网站。怎么办呢？你可以建立一个 SSH 隧道！  </li>
+<li><strong>好处？</strong> 它可以让你安全地访问那些没有直接暴露在公网上的服务，或者给那些本身不加密的旧应用程序（比如老的 VNC）套上一层加密“外壳” 。</li>
+</ul>
+<p>这些工具和技术代表了不同层面的安全防护策略。防火墙和 VPN 侧重于网络层面的访问控制和隔离，减少 SSH 服务本身的暴露风险。而 TOTP 则是在 SSH 认证环节增加了一道验证。SSH 隧道则是利用 SSH 连接本身来保护其他应用的数据。理解它们的区别和用途，可以帮助你根据需要构建更强大的安全体系。</p>
+<div class="admonition success">
+<p class="admonition-title">你太棒了！你不仅学会了 SSH 的基本用法，还了解了这么多高级的安全知识！你的技能树又点亮了不少！</p>
+</div>
+<h2 id="ssh_5">结语：恭喜你，SSH 大门已敞开！</h2>
+<p>恭喜你完成了这趟 SSH 的探索之旅！现在，你应该已经：</p>
+<ul>
+<li>明白了为什么 SSH 如此重要（安全、高效、能自动化）。  </li>
+<li>知道了如何在你的 Windows 或 macOS 电脑上找到并使用 OpenSSH 客户端。  </li>
+<li>掌握了如何连接到远程服务器，包括理解并验证首次连接时的主机指纹，以及输入密码时为何“隐形”。  </li>
+<li>学会了生成和使用 SSH 密钥对这一更安全、更便捷的登录方式，并了解了密码短语的作用。  </li>
+<li>了解了如何通过 <code>~/.ssh/config</code> 文件创建连接别名，简化日常操作。  </li>
+<li>接触了几个基本的服务器端安全加固方法，比如修改端口、禁用 root 登录和禁用密码登录。  </li>
+<li>对其他可以增强 SSH 安全的工具（如 TOTP 双因素认证、防火墙、VPN 和 SSH 隧道）有了初步的认识。</li>
+</ul>
+<p>你已经成功推开了 SSH 这扇大门，掌握了远程连接和管理服务器的基础技能。这不仅仅是一项技术，更是通往更广阔的计算机世界的一把钥匙。无论是管理个人项目、参与开源贡献，还是将来从事 IT 相关工作，SSH 都将是你工具箱中不可或缺的一部分。</p>
+<p>当然，SSH 的世界远不止这些。如果你对某个方面特别感兴趣，可以继续深入探索：</p>
+<ul>
+<li>更高级的 <code>sshd_config</code> 服务器配置选项。  </li>
+<li>ssh-agent 的使用，它可以帮你管理密钥密码短语，让你在一次登录会话中无需重复输入 。  </li>
+<li>具体的防火墙配置 (ufw, firewalld)。  </li>
+<li>使用 SSH 进行脚本自动化编程 。  </li>
+<li>SSH 隧道的更多高级用法。</li>
+</ul>
+<p>官方的 OpenSSH 文档（可以通过 <code>man ssh</code>, <code>man sshd_config</code>, <code>man ssh_config</code> 等命令查看，或者在线搜索）是进一步学习的权威资源。</p>
+<div class="admonition success">
+<p class="admonition-title">继续探索，继续学习，命令行世界的奇妙远不止于此！祝你在未来的技术旅程中一切顺利！</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="git.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: Git">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Git
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="nodejs.html" class="md-footer__link md-footer__link--next" aria-label="下一页: Node.js">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Node.js
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <p xmlns:cc="http://creativecommons.org/ns#" >Unless otherwise declared, this work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="../assets/external/mirrors.creativecommons.org/presskit/icons/cc.342ac5e2.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="../assets/external/mirrors.creativecommons.org/presskit/icons/by.342ac5e2.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="../assets/external/mirrors.creativecommons.org/presskit/icons/nc.342ac5e2.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="../assets/external/mirrors.creativecommons.org/presskit/icons/sa.342ac5e2.svg" alt=""></a></p>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.footer", "navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

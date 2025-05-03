@@ -1,0 +1,3349 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gtss-ai-docs.barz.foo/basic/domain.html">
+      
+      
+        <link rel="prev" href="termux.html">
+      
+      
+        <link rel="next" href="../chatting/index.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.6">
+    
+    
+      
+        <title>域名和 DNS - AI 巨大娘会梦见电子小人吗</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="../assets/external/unpkg.com/iframe-worker/shim.js"></script>
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="AI 巨大娘会梦见电子小人吗" class="md-header__button md-logo" aria-label="AI 巨大娘会梦见电子小人吗" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI 巨大娘会梦见电子小人吗
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              域名和 DNS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/foobarz076/gtss_ai_docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    foobarz076/gtss_ai_docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="index.html" class="md-tabs__link">
+          
+  
+  基础知识
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chatting/index.html" class="md-tabs__link">
+          
+  
+  聊天
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../drawing/index.html" class="md-tabs__link">
+          
+  
+  绘画
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../resources/index.html" class="md-tabs__link">
+          
+  
+  其它资源
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AI 巨大娘会梦见电子小人吗" class="md-nav__button md-logo" aria-label="AI 巨大娘会梦见电子小人吗" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI 巨大娘会梦见电子小人吗
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/foobarz076/gtss_ai_docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    foobarz076/gtss_ai_docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI 巨大娘会梦见电子小人吗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    基础知识
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            基础知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    工具
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="git.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssh.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSSH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nodejs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="termux.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Termux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    服务
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            服务
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    域名和 DNS
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="domain.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    域名和 DNS
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      你的数字地址：为什么域名如此重要
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="你的数字地址：为什么域名如此重要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言：打造你的在线门面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是域名？（互联网的“电话簿”或“街道地址”）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么不用数字（IP 地址）上网？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么时候你需要一个域名？（不仅仅是为了网站）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      域名的构成（地址的解剖学）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      域名江湖：谁在管理这一切？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="域名江湖：谁在管理这一切？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言：域名背后的“玩家”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry-tld" class="md-nav__link">
+    <span class="md-ellipsis">
+      “大老板”：域名注册管理机构 (Registry) - TLD 的批发商/制造商
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registrar-" class="md-nav__link">
+    <span class="md-ellipsis">
+      “友好的店主”：域名注册商 (Registrar) - 面向公众的零售商
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icann-" class="md-nav__link">
+    <span class="md-ellipsis">
+      “规则制定者”：ICANN - 互联网的协调员
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registrant-" class="md-nav__link">
+    <span class="md-ellipsis">
+      你：注册人 (Registrant) - 域名的“执照持有者”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reseller" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于经销商 (Reseller) 的说明
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whois-rdap" class="md-nav__link">
+    <span class="md-ellipsis">
+      谁是域名的主人？解读 WHOIS、隐私保护和 RDAP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="谁是域名的主人？解读 WHOIS、隐私保护和 RDAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whois" class="md-nav__link">
+    <span class="md-ellipsis">
+      WHOIS：公开的域名“户籍”系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      透明度的代价：隐私风险
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whois_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      给信息穿上“隐身衣”：WHOIS 隐私保护如何运作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdap" class="md-nav__link">
+    <span class="md-ellipsis">
+      迎接 RDAP：下一代域名目录服务
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      选择你的域名：实用指南
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="选择你的域名：实用指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tld" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一部分：名称与 TLD 后缀的选择
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：名称与 TLD 后缀的选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      挑选合适的名称（你的数字身份标识）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tld-com" class="md-nav__link">
+    <span class="md-ellipsis">
+      解读 TLD 后缀（超越.com 的选择）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tld_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      了解规则：TLD 的注册限制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https-tld-hsts" class="md-nav__link">
+    <span class="md-ellipsis">
+      特别注意：强制 HTTPS 的 TLD (HSTS 预加载)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      第二部分：成本因素（小心价格陷阱！）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：成本因素（小心价格陷阱！）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么价格差异这么大？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      警惕！ 首年低价 vs. 高额续费（最大的“坑”）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      货比三家：不同注册商的价格差异
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      价格构成解密（你付的钱去了哪里？）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      第三部分：选择你的注册商（寻找靠谱的“管家”）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三部分：选择你的注册商（寻找靠谱的“管家”）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      价格之外的考量（价值比价格更重要）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      是否有附加条件？（仔细阅读条款）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      信任与安全（保护你的数字资产）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      特别提醒：关于在中国注册域名的注意事项
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="特别提醒：关于在中国注册域名的注意事项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用中国大陆注册商的风险
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry-tld_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用位于中国的注册管理机构 (Registry) 的风险（影响特定 TLD）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      建议：谨慎行事
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结：你的域名之旅即将启程
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    聊天
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            聊天
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    聊天工具和知识概览
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/avoid_scamming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    预防欺诈
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    取得 API 密钥
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            取得 API 密钥
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OpenAI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            OpenAI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/oai.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenAI Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Claude
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Claude
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/anthropic.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anthropic Console
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/gemini.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Gemini
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    辅助工具
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            辅助工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_5_1" id="__nav_3_3_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Clewd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Clewd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/clewd.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    下载和安装 Clewd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/account.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    注册 Claude 帐号
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/pro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    订阅 Claude Pro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/cookie.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取 Cookie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/clewd/faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clewd 常见问题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/api_connection/oai_reverse_proxy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    oai-reverse-proxy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SillyTavern（酒馆）
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            SillyTavern（酒馆）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    酒馆简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    聊天快速上手
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            聊天快速上手
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/install.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2_2" id="__nav_3_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    杂鱼用一键脚本
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            杂鱼用一键脚本
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/termux_deployment_script/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Termux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/api_connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    连接到 LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/get_char.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取角色卡和关联信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/get_preset.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取对话补全预设
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/get_resource.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取其它周边信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/chat.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    开始聊天
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/lan_access.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    局域网连接
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_4" id="__nav_3_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    云端部署
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            云端部署
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/cloud_deploy/vps.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    普通的 VPS 部署
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatting/sillytavern/faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常见问题
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    绘画
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            绘画
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drawing/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI 绘画相关工具和知识概览
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    其它资源
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            其它资源
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/ask.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提问的智慧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      你的数字地址：为什么域名如此重要
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="你的数字地址：为什么域名如此重要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言：打造你的在线门面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是域名？（互联网的“电话簿”或“街道地址”）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么不用数字（IP 地址）上网？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么时候你需要一个域名？（不仅仅是为了网站）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      域名的构成（地址的解剖学）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      域名江湖：谁在管理这一切？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="域名江湖：谁在管理这一切？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言：域名背后的“玩家”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry-tld" class="md-nav__link">
+    <span class="md-ellipsis">
+      “大老板”：域名注册管理机构 (Registry) - TLD 的批发商/制造商
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registrar-" class="md-nav__link">
+    <span class="md-ellipsis">
+      “友好的店主”：域名注册商 (Registrar) - 面向公众的零售商
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icann-" class="md-nav__link">
+    <span class="md-ellipsis">
+      “规则制定者”：ICANN - 互联网的协调员
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registrant-" class="md-nav__link">
+    <span class="md-ellipsis">
+      你：注册人 (Registrant) - 域名的“执照持有者”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reseller" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于经销商 (Reseller) 的说明
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whois-rdap" class="md-nav__link">
+    <span class="md-ellipsis">
+      谁是域名的主人？解读 WHOIS、隐私保护和 RDAP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="谁是域名的主人？解读 WHOIS、隐私保护和 RDAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whois" class="md-nav__link">
+    <span class="md-ellipsis">
+      WHOIS：公开的域名“户籍”系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      透明度的代价：隐私风险
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whois_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      给信息穿上“隐身衣”：WHOIS 隐私保护如何运作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdap" class="md-nav__link">
+    <span class="md-ellipsis">
+      迎接 RDAP：下一代域名目录服务
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      选择你的域名：实用指南
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="选择你的域名：实用指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tld" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一部分：名称与 TLD 后缀的选择
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一部分：名称与 TLD 后缀的选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      挑选合适的名称（你的数字身份标识）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tld-com" class="md-nav__link">
+    <span class="md-ellipsis">
+      解读 TLD 后缀（超越.com 的选择）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tld_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      了解规则：TLD 的注册限制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https-tld-hsts" class="md-nav__link">
+    <span class="md-ellipsis">
+      特别注意：强制 HTTPS 的 TLD (HSTS 预加载)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      第二部分：成本因素（小心价格陷阱！）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二部分：成本因素（小心价格陷阱！）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么价格差异这么大？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      警惕！ 首年低价 vs. 高额续费（最大的“坑”）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      货比三家：不同注册商的价格差异
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      价格构成解密（你付的钱去了哪里？）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      第三部分：选择你的注册商（寻找靠谱的“管家”）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第三部分：选择你的注册商（寻找靠谱的“管家”）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      价格之外的考量（价值比价格更重要）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      是否有附加条件？（仔细阅读条款）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      信任与安全（保护你的数字资产）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      特别提醒：关于在中国注册域名的注意事项
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="特别提醒：关于在中国注册域名的注意事项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用中国大陆注册商的风险
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry-tld_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用位于中国的注册管理机构 (Registry) 的风险（影响特定 TLD）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      建议：谨慎行事
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结：你的域名之旅即将启程
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">域名漫游指南：从选择到保护，你需要知道的一切</h1>
+<h2 id="_2">你的数字地址：为什么域名如此重要</h2>
+<h3 id="_3">引言：打造你的在线门面</h3>
+<p>想象一下，互联网是一个熙熙攘攘的数字世界，拥有超过 15 亿个网站 。在这个浩瀚的空间里，要想让别人找到你，无论是你的个人博客、初创公司还是在线商店，拥有一个独特且易于识别的地址至关重要。就像实体店需要门牌号，家庭需要街道地址一样，你的在线业务或个人空间也需要一个专属的“数字门牌”——这就是域名 。没有它，你就像在茫茫人海中没有名字和地址，访客将无从寻觅。</p>
+<h3 id="_4">什么是域名？（互联网的“电话簿”或“街道地址”）</h3>
+<p>简单来说，域名就是人们在浏览器地址栏中输入的那个方便记忆的名称，用来访问特定网站，比如 <code>google.com</code> 或 <code>wikipedia.org</code> 。它也是电子邮件地址中 <code>@</code> 符号后面的部分，以及网址中 <code>www.</code> 后面的部分 。</p>
+<p>域名的核心作用，是作为一串复杂难记的数字——即 IP 地址（互联网协议地址）——的人类友好型“别名” 。IP 地址，例如 <code>198.102.434.8</code> 或 <code>192.0.43.7</code>，是计算机在网络上互相定位的实际地址 。</p>
+<p>这里可以用一个经典的<strong>电话簿比喻</strong>来理解：你通常会记住朋友的名字（域名），而不是他们的电话号码（IP 地址）。当你需要联系朋友时，你会查找名字来获取号码。同样，你的浏览器使用域名来查找网站对应的 IP 地址 。或者用更现代的<strong>智能手机通讯录类比</strong>：你只需点击联系人姓名即可拨打电话，而无需记住那一长串数字 。域名系统让上网变得如此便捷。</p>
+<p>需要注意的是，域名和 URL（统一资源定位符，即完整的网页地址）并不完全相同。域名只是 URL 的一部分 。例如，在 <code>https://www.example.com/about-us</code> 这个 URL 中，<code>example.com</code> 是域名，而整个字符串还包括了协议 (<code>https</code>)、子域名 (<code>www</code>) 以及指向特定页面的路径 (<code>/about-us</code>)。可以形象地理解为：<strong>域名是房子的街道地址，而 URL 则是到达房子里具体某个房间的完整路线图</strong> 。</p>
+<h3 id="ip">为什么不用数字（IP 地址）上网？</h3>
+<p>最主要的原因显而易见：IP 地址是一串数字（在 IPv6 中甚至包含字母），对人类来说极其难以记忆和输入，而且容易出错 。想象一下，每次访问你喜欢的网站都要输入类似 <code>192.0.43.7</code> 这样的地址，那将是多么痛苦的体验。域名系统通过提供易于记忆的名称，极大地简化了互联网导航 。</p>
+<p>此外，网站服务器的 IP 地址有时可能会因为服务器迁移等原因发生变化，而域名可以保持不变，为用户提供一个稳定的访问入口 。</p>
+<p>这一切便利的背后，是<strong>域名系统 (DNS)</strong> 这个“幕后英雄”在默默工作。DNS 常被称为互联网的“地址簿”或“翻译官” 。它的核心任务就是将你输入的人类可读的域名，转换成计算机能够理解的、用于建立连接的 IP 地址 。这个过程（称为 DNS 解析或查找）大致如下：</p>
+<ol>
+<li>你在浏览器输入 <code>example.com</code>。</li>
+<li>浏览器向 DNS 服务器（可以想象成一位图书管理员 12）发出请求。</li>
+<li>DNS 系统通过一系列查询（就像在图书馆里按索引查找书架和具体的书 12），找到 <code>example.com</code> 对应的 IP 地址。</li>
+<li>浏览器获得 IP 地址后，就能连接到托管该网站的服务器了 。</li>
+</ol>
+<p>整个过程通常在眨眼之间完成，用户几乎感觉不到它的存在 14，但这套复杂、分布式的系统对于我们今天所熟知的用户友好型互联网至关重要。没有 DNS，互联网对大多数人来说将变得难以使用，我们会被迫记住那些冰冷的数字 。DNS 的稳定可靠运行，对于网站的可访问性和电子邮件的正常收发都至关重要 。</p>
+<h3 id="_5">什么时候你需要一个域名？（不仅仅是为了网站）</h3>
+<p>拥有一个域名并非只是技术爱好者的专利，在许多场景下它都是必不可少的：</p>
+<ul>
+<li><strong>建立在线形象：</strong> 无论是企业官网、个人品牌展示、作品集、博客还是在线商店，域名都是你线上存在的基石 。它是你在数字世界中的专属地盘 。</li>
+<li><strong>提升专业度和可信度：</strong> 使用自定义域名（如 <code>yourbrand.com</code>）相比于依附在其他平台下的免费子域名（如 <code>yourbrand.wordpress.com</code> 或 <code>yourstore.myshopify.com</code>），显得更加专业、正规和值得信赖 。这有助于建立访客的信心，让他们觉得你的业务是稳定和合法的 。</li>
+<li><strong>打造专业邮箱：</strong> 拥有自己的域名后，你可以创建品牌化的电子邮件地址，例如 <code>contact@yourbrand.com</code>。这不仅看起来更专业，也能增强客户沟通中的信任感，并统一品牌形象 。</li>
+<li><strong>强化品牌识别与记忆度：</strong> 域名是你在线品牌标识的核心部分 。一个简短、朗朗上口且与品牌相关的域名，更容易被人们记住和传播，从而吸引更多直接访问流量 。它往往是访客对你的第一印象 。</li>
+<li><strong>掌握控制权：</strong> 注册域名意味着在注册期内，你获得了该名称的独家使用权 。这让你能够完全掌控自己的在线身份和数字资产 。</li>
+<li><strong>搜索引擎优化 (SEO) 优势：</strong> 搜索引擎通常更青睐拥有自定义域名的网站，这可能有助于提升你的网站在搜索结果中的排名，带来更多自然流量 。虽然域名中包含相关关键词_可能_有帮助，但不应牺牲品牌性 。此外，域名的“年龄”（注册时长）也是搜索引擎考虑的因素之一，老域名往往能积累更多权重 。</li>
+</ul>
+<p>从这些用途可以看出，域名远不止是一个技术性的网址。它是一个基础性的数字资产，是品牌建设、市场营销和建立信任的关键工具。选择和管理好域名，对于任何希望在网上有所作为的个人或组织来说，都是一项重要的战略决策，而不仅仅是网站上线前的一个技术步骤。</p>
+<h3 id="_6">域名的构成（地址的解剖学）</h3>
+<p>域名并非随意组合的字符串，它有着清晰的层次结构，通常由点 (<code>.</code>) 分隔成几个部分。解读域名需要从右往左看，层级由高到低，范围由大到小 。</p>
+<ul>
+<li><strong>顶级域名 (Top-Level Domain, TLD)：</strong> 这是域名最右侧的部分，紧跟在最后一个点之后，例如 <code>.com</code>, <code>.org</code>, <code>.store</code>, <code>.uk</code> 。它也被称为“域名后缀”或“域名扩展” 。TLD 通常表明网站的大致类型、目的或地理归属 。主要有以下几类：<ul>
+<li><strong>通用顶级域名 (gTLD):</strong> 最常见的一类，如 <code>.com</code>（商业）、<code>.org</code>（组织）、<code>.net</code>（网络）、<code>.info</code>（信息）等 。</li>
+<li><strong>国家代码顶级域名 (ccTLD):</strong> 由两个字母组成，代表特定的国家或地区，如 <code>.cn</code>（中国）、<code>.uk</code>（英国）、<code>.ca</code>（加拿大）、<code>.jp</code>（日本） 。</li>
+<li><strong>赞助顶级域名 (sTLD):</strong> 由特定机构赞助和管理，通常有严格的注册限制，面向特定社群，如 <code>.gov</code>（美国政府）、<code>.edu</code>（教育机构）、<code>.mil</code>（美国军事）、<code>.museum</code>（博物馆）、<code>.travel</code>（旅游行业） 。</li>
+<li><strong>新通用顶级域名 (New gTLD):</strong> 近年来新增的大量 TLD，通常更具描述性或针对特定行业，如 <code>.shop</code>、<code>.app</code>、<code>.blog</code>、<code>.tech</code>、<code>.photography</code> 等 。</li>
+</ul>
+</li>
+<li><strong>二级域名 (Second-Level Domain, SLD)：</strong> 紧邻 TLD 左侧的部分，这通常是你注册时选择的、代表你品牌或名称的独一无二的部分，例如 <code>google</code> (在 <code>google.com</code> 中) 或 <code>mycoolblog</code> (在 <code>mycoolblog.net</code> 中) 。这是域名中最具识别性的核心部分 。</li>
+<li><strong>三级域名 (Third-Level Domain) 或子域名 (Subdomain)：</strong> SLD 左侧的任何部分都可称为子域名，例如 <code>www</code> (在 <code>www.google.com</code> 中)、<code>shop</code> (在 <code>shop.example.com</code> 中)、<code>blog</code> (在 <code>blog.example.com</code> 中) 。子域名通常用来组织网站的不同板块或提供特定服务 。常见的 <code>www</code> 其实也是一个子域名，但现在很多网站也支持不带 <code>www</code> 的“裸域名”访问 。</li>
+</ul>
+<p>理解这个结构有助于你更好地选择和管理自己的域名。</p>
+<h2 id="_7">域名江湖：谁在管理这一切？</h2>
+<h3 id="_8">引言：域名背后的“玩家”</h3>
+<p>当你轻松地输入一个网址就能访问网站时，背后其实有一个复杂的生态系统在支撑着。获得并使用一个域名，涉及到多个组织的分工协作。了解这些“玩家”的角色——域名注册管理机构 (Registry)、域名注册商 (Registrar)、互联网名称与数字地址分配机构 (ICANN)，以及作为用户的你 (Registrant)——有助于你更好地理解这个过程 。</p>
+<h3 id="registry-tld">“大老板”：域名注册管理机构 (Registry) - TLD 的批发商/制造商</h3>
+<p>域名注册管理机构是负责管理特定顶级域名 (TLD) 的组织 。例如，Verisign 公司负责管理 <code>.com</code> 和 <code>.net</code> 这两个最常见的 TLD，而 Public Interest Registry 则管理着 <code>.org</code> 。对于国家代码顶级域名 (ccTLD)，通常由该国指定的机构负责，例如 CNNIC 管理 <code>.cn</code>。可以把 Registry 想象成特定 TLD 后缀的“制造商”或“批发商” 。</p>
+<p>它们的核心职责包括：</p>
+<ul>
+<li><strong>维护权威数据库：</strong> 保存其管理的 TLD 下所有已注册域名的官方主列表 。</li>
+<li><strong>制定 TLD 政策：</strong> 设定该 TLD 的注册规则，例如谁有资格注册、注册期限、争议解决机制等 。</li>
+<li><strong>确保唯一性：</strong> 保证在其 TLD 下注册的每个域名都是独一无二的 。</li>
+<li><strong>运营 TLD 的 DNS 服务器：</strong> 维护该 TLD 的顶级域名服务器，这是整个 DNS 解析链条中的关键一环 。</li>
+</ul>
+<p>Registry 通常与 ICANN 签订合同来运营 TLD 29，并且一般不直接向最终用户出售域名 。</p>
+<h3 id="registrar-">“友好的店主”：域名注册商 (Registrar) - 面向公众的零售商</h3>
+<p>域名注册商是经过 ICANN 认证的公司，它们直接向公众（即注册人）销售域名注册服务 。我们熟知的 GoDaddy, Namecheap, Google Domains, Cloudflare Registrar, Bluehost, Domain.com 等都属于注册商 。可以把 Registrar 想象成你去购买域名的“零售商店” 。</p>
+<p>它们扮演着注册人 (你) 和注册管理机构 (Registry) 之间的桥梁角色 31，主要负责：</p>
+<ul>
+<li><strong>提供注册工具：</strong> 提供在线平台让用户搜索查询可用的域名 。</li>
+<li><strong>处理注册申请：</strong> 接收用户的注册请求，收集必要信息（如联系方式）并处理付款 。</li>
+<li><strong>与 Registry 通信：</strong> 将用户的注册信息提交给相应的 Registry，以完成域名的正式登记 。</li>
+<li><strong>管理用户账户：</strong> 提供用户界面，让注册人管理其名下的域名，包括设置 DNS 记录（将域名指向网站服务器或邮箱服务器）、处理续费、发起域名转移等 。</li>
+<li><strong>提供客户支持：</strong> 解答用户关于域名注册和管理的技术问题 。</li>
+</ul>
+<p>要成为大多数通用顶级域名的注册商，公司需要获得 ICANN 的认证。这个认证过程要求公司满足一定的财务稳健性、技术能力和运营规范标准 。注册商需要向 ICANN 支付年费和交易费 37，并遵守与 ICANN 签订的《注册商认证协议》(RAA) 。</p>
+<h3 id="icann-">“规则制定者”：ICANN - 互联网的协调员</h3>
+<p>ICANN (Internet Corporation for Assigned Names and Numbers) 是一个全球性的非营利组织，负责协调互联网上那些独一无二的标识符，确保全球互联网的稳定运行，这其中就包括域名和 IP 地址 。</p>
+<p>ICANN 的角色不是直接管理某个域名，而是进行宏观协调和政策制定 。它的关键职能包括：</p>
+<ul>
+<li><strong>认证注册商：</strong> 审核并授权公司成为域名注册商 。</li>
+<li><strong>管理 TLD 系统：</strong> 与注册管理机构签订合同，监督 TLD 的运营，并负责引入新的 TLD 。</li>
+<li><strong>制定全球政策：</strong> 制定管理域名的通用政策，例如 WHOIS 数据要求、域名转移规则、统一域名争议解决政策 (UDRP) 等 。</li>
+<li><strong>确保唯一性与互操作性：</strong> 协调 IP 地址和域名的分配，防止冲突，保证全球互联网系统的稳定和安全 。</li>
+</ul>
+<h3 id="registrant-">你：注册人 (Registrant) - 域名的“执照持有者”</h3>
+<p>注册人就是那个购买和注册域名的个人或组织——也就是你 。</p>
+<p>需要特别强调的是，注册域名并非意味着你永久“拥有”了它。更准确地说，你是获得了在特定期限内（通常为 1 到 10 年）使用该域名的<strong>许可权或租赁权</strong> 。你是该域名的“注册名称持有人” (registered name holder) 。</p>
+<p>作为注册人，你也有相应的责任：</p>
+<ul>
+<li><strong>支付费用：</strong> 按时支付域名的注册费和续费费用，否则域名可能会过期并被他人注册 。</li>
+<li><strong>提供准确信息：</strong> 根据 ICANN 的规定，你需要向注册商提供真实、准确、完整的联系信息（即 WHOIS 信息），并在信息变更时及时更新 。</li>
+<li><strong>管理域名设置：</strong> 通过注册商提供的控制面板，管理域名的 DNS 记录，确保它正确指向你的网站、邮箱或其他服务 。</li>
+<li><strong>遵守规则：</strong> 遵守你与注册商签订的服务协议以及相关 Registry 和 ICANN 的政策 。</li>
+</ul>
+<p>注册人通过其在注册商处的账户来控制域名的配置和管理 。</p>
+<h3 id="reseller">关于经销商 (Reseller) 的说明</h3>
+<p>除了直接从 ICANN 认证的注册商处购买域名，你可能还会遇到域名经销商。这些公司（通常是网站托管服务商或网页设计公司）与认证注册商合作，转售域名注册服务 。你可能直接与经销商打交道，但你的域名最终还是由其合作的认证注册商管理，该注册商对 ICANN 负责 。</p>
+<p>这个由 ICANN 协调、Registry 管理 TLD、Registrar 零售、Registrant 使用的层级结构，构成了域名世界的商业和管理框架。ICANN 制定规则，Registry 掌握 TLD 的“源头”，而 Registrar 则是你直接打交道的对象。理解这个结构有助于明白费用的流向（用户付钱给 Registrar，Registrar 再向上游的 Registry 和 ICANN 支付费用 33），以及遇到问题时应该找谁（通常是你的 Registrar 31）。</p>
+<p>用户与域名系统的所有互动几乎都通过注册商进行：购买、续费、修改 DNS、获取支持、处理转移等 。这意味着注册商的选择至关重要，它直接影响到你的使用体验、成本以及域名安全。一个好的注册商不仅提供有竞争力的价格，还应提供易用的管理工具、可靠的服务和有效的客户支持 。同时，注册商必须遵守 ICANN 的各项规定，例如保护用户数据、及时发送续费提醒、按规定处理域名转移请求、配合处理域名滥用问题等 31，这些都是保障用户权益的基础。因此，选择注册商时，不能只看价格，更要看其服务质量、可靠性和安全性，把它看作是管理你重要数字资产的合作伙伴。</p>
+<h2 id="whois-rdap">谁是域名的主人？解读 WHOIS、隐私保护和 RDAP</h2>
+<h3 id="whois">WHOIS：公开的域名“户籍”系统</h3>
+<p>当你注册了一个域名后，你的部分信息会被记录在一个公开的数据库中，这个系统和查询它的协议被称为 WHOIS 。它的名字来源于英文“Who is?”，意在回答“谁对这个域名或 IP 地址负责？” 。</p>
+<p>通常，一条 WHOIS 记录会包含以下信息 31：</p>
+<ul>
+<li><strong>注册人 (Registrant) 信息：</strong> 域名持有者的姓名/组织名称、邮寄地址、电子邮箱、电话号码。</li>
+<li><strong>管理联系人 (Admin Contact) 和技术联系人 (Tech Contact) 信息：</strong> 通常与注册人信息相同，但有时可能是其他人或部门。</li>
+<li><strong>注册商 (Registrar) 信息：</strong> 你通过哪家公司注册的域名。</li>
+<li><strong>域名状态 (Domain Status)：</strong> 如 <code>ok</code>, <code>clientHold</code>, <code>pendingDelete</code> 等。</li>
+<li><strong>注册日期 (Creation Date) 和到期日期 (Expiration Date)。</strong></li>
+<li><strong>域名服务器 (Name Servers)：</strong> 该域名当前指向的 DNS 服务器地址。</li>
+</ul>
+<p>根据 ICANN 的规定，注册商有义务收集这些注册信息，并将其通过 WHOIS 服务公之于众 。任何人都可以通过在线的 WHOIS 查询工具（许多注册商和独立网站都提供）来查找这些信息 。注册人则有责任通过注册商保持这些信息的准确性 。</p>
+<p>WHOIS 系统的初衷是为了提高互联网的透明度和可追溯性 。它的用途包括：确认域名所有权、联系域名持有人进行商业合作或解决技术问题、帮助网络运营商和安全团队追踪垃圾邮件发送者或网络攻击来源、维护域名注册市场的秩序等 。</p>
+<h3 id="_9">透明度的代价：隐私风险</h3>
+<p>然而，这种完全公开的方式也带来了一个显而易见的问题：它将域名注册人的个人联系信息暴露给了全世界，这与现代社会对个人隐私保护的需求产生了冲突 。</p>
+<p>公开的 WHOIS 信息可能导致一系列风险：</p>
+<ul>
+<li><strong>垃圾邮件和骚扰电话：</strong> 你的邮箱和电话号码很容易被营销人员、垃圾邮件发送者和电话推销员收集，导致收到大量不请自来的信息 。特别是新注册的域名，往往会立即成为目标 。</li>
+<li><strong>网络钓鱼和诈骗：</strong> 攻击者可能利用 WHOIS 信息中的联系方式，向你发送看似合法的钓鱼邮件（例如假冒的域名续费通知），试图骗取你的账户密码或支付信息 。</li>
+<li><strong>身份盗窃：</strong> 姓名、地址、电话、邮箱等个人信息的组合，可能被不法分子用于身份盗窃 。</li>
+<li><strong>人身骚扰：</strong> 对于个人博主或有争议内容的网站所有者，公开的联系方式可能引来不必要的关注甚至骚扰 。</li>
+<li><strong>域名劫持风险：</strong> 攻击者可能利用获取的信息尝试通过社会工程学手段，冒充你联系注册商，试图非法转移或控制你的域名 。</li>
+</ul>
+<h3 id="whois_1">给信息穿上“隐身衣”：WHOIS 隐私保护如何运作</h3>
+<p>为了解决上述隐私问题，许多域名注册商提供了一项名为 <strong>WHOIS 隐私保护</strong>（也常被称为 Domain Privacy, Private Registration 或 WHOIS Proxy）的服务 。</p>
+<p>这项服务的工作原理是：</p>
+<ol>
+<li><strong>信息替换：</strong> 当你启用 WHOIS 隐私保护后，注册商或其合作的第三方隐私服务机构会用他们自己的通用联系信息（如公司名称、地址、专门的代理邮箱和电话号码）<strong>替换</strong>掉你在公开 WHOIS 数据库中的个人信息 。例如，注册人姓名可能显示为“Privacy Service”或注册商的名字。</li>
+<li><strong>邮件转发：</strong> 为了确保你仍能收到关于域名的重要通知或合法的联系请求，隐私服务通常会提供一个<strong>邮件转发机制</strong>。发送到公开代理邮箱的邮件会经过筛选（过滤掉明显的垃圾邮件），然后被转发到你真实的、未公开的私人邮箱地址 。这样，既保护了你的邮箱不被公开收集，又不至于让你与世隔绝。有些服务还可能提供邮寄信件的转寄服务 53，或者提供定期更换代理邮箱的功能以加强反垃圾邮件效果 。</li>
+<li><strong>所有权不变：</strong> 重要的是，即使公开记录显示的是代理信息，<strong>你仍然是域名的合法注册人</strong>，拥有对域名的完全控制权 。你的真实信息仍然安全地保存在注册商的内部记录中，这是 ICANN 规定所要求的 。</li>
+<li><strong>法律披露：</strong> 需要注意的是，这种隐私保护并非绝对匿名。在收到具有法律效力的请求（如法院传票或执法机构的合法调查）时，隐私服务提供商或注册商可能<strong>有义务披露</strong>你的真实身份信息 。</li>
+</ol>
+<p><strong>GDPR 的影响：</strong> 欧盟的《通用数据保护条例》(GDPR) 对 WHOIS 系统产生了深远影响。为了遵守 GDPR 对个人数据的保护要求，许多注册商现在对位于欧盟的个人注册者默认<strong>隐藏或“编辑”</strong> (redact) 其在 WHOIS 中的个人联系信息，通常会显示为“Redacted for Privacy”或类似字样 。一些注册商也将这种做法扩展到了非欧盟用户 。此外，某些 TLD（特别是欧洲国家的 ccTLD，如 <code>.de</code>, <code>.fr</code>, <code>.ca</code> 对个人）本身就提供了更强的隐私保护措施 。这意味着对于部分用户来说，可能不再需要额外购买 WHOIS 隐私服务。但这种情况并非普遍适用，且通常只保护个人身份信息，对于企业注册信息或非欧盟用户，WHOIS 隐私服务仍然有其价值。</p>
+<p>虽然 WHOIS 隐私服务有效地解决了旧系统带来的许多问题，但它本质上是在原有框架上打的一个“补丁”。随着技术发展和对更精细化管理需求的出现，一个更现代化的替代方案应运而生。</p>
+<h3 id="rdap">迎接 RDAP：下一代域名目录服务</h3>
+<p><strong>RDAP (Registration Data Access Protocol)</strong>，即注册数据访问协议，是由互联网工程任务组 (IETF) 开发的、旨在最终取代老旧 WHOIS 协议的新标准 。ICANN 正在推动其在通用顶级域名 (gTLD) 中的应用，并计划在未来（预计 2025 年 1 月 28 日之后）取消注册管理机构和注册商提供 WHOIS 服务的强制性要求 。</p>
+<p>相比于 WHOIS，RDAP 具有多项显著优势：</p>
+<ul>
+<li><strong>标准化的数据格式：</strong> RDAP 使用 <strong>JSON</strong> 格式返回数据，这是一种结构化、机器可读的标准格式，极大地简化了程序对数据的自动解析和处理 。而 WHOIS 返回的是格式不统一的纯文本，难以自动化处理 。</li>
+<li><strong>增强的安全性：</strong> RDAP 查询通过 <strong>HTTPS</strong> 进行，这意味着数据在传输过程中是加密的，更加安全 。它还支持更现代的身份验证机制 。</li>
+<li><strong>分级访问与隐私控制：</strong> RDAP 的设计<strong>支持分级访问控制</strong> (differentiated access) 。这意味着注册管理机构或注册商可以根据查询者的身份（例如，公众、域名所有者、执法机构、授权第三方）提供不同详细程度的信息。这为在满足合法查询需求的同时更好地保护注册人隐私提供了可能，也更符合 GDPR 等隐私法规的要求 。</li>
+<li><strong>国际化支持：</strong> RDAP 原生支持<strong>国际化域名 (IDN)</strong> 以及包含非 ASCII 字符（如中文、阿拉伯文、西里尔文等）的联系信息，更好地适应了互联网的全球化特性 。WHOIS 在这方面存在先天不足 。</li>
+<li><strong>标准化的查询与响应：</strong> RDAP 定义了统一的查询方式和响应结构，使得与不同提供商的交互更加一致和可预测 。它还包括了标准化的错误代码，便于程序处理异常情况 。</li>
+<li><strong>可扩展性：</strong> RDAP 协议设计灵活，允许未来根据需要添加新的数据字段或功能 。</li>
+</ul>
+<p>RDAP 不仅可以查询域名信息，还可以查询 IP 地址和自治系统号 (ASN) 的注册信息 。</p>
+<p><strong>过渡时期的挑战：</strong> 从 WHOIS 到 RDAP 的转换是一个逐步进行的过程。虽然 ICANN 对 gTLD 有强制要求，但全球范围内的完全过渡需要时间，注册商和注册管理机构需要投入资源更新系统 。在此期间，可能会出现 WHOIS 和 RDAP 服务并存的情况 。对于一些不受 ICANN 直接管理的 ccTLD，采用 RDAP 的步伐可能会更慢 。这意味着在一段时间内，用户和依赖这些数据的工具可能需要同时处理两种协议，并且可能遇到数据不一致或可用性差异的问题 。</p>
+<p>这个从 WHOIS 到隐私保护服务，再到 RDAP 的演变过程，清晰地反映了互联网在透明度需求和日益增长的隐私保护呼声之间的持续权衡。RDAP 试图在协议层面提供更精细化的解决方案，以适应这个不断变化的平衡点。然而，在过渡完成之前，传统的 WHOIS 隐私保护服务对于希望立即隐藏其公开联系信息的用户来说，仍然是一个实用且有效的选择。同时，RDAP 带来的标准化、结构化数据等优势，也预示着未来域名注册信息的利用将更加高效和便捷，尤其对于需要自动化处理这些数据的安全研究人员和开发者而言。</p>
+<h2 id="_10">选择你的域名：实用指南</h2>
+<h3 id="_11">引言</h3>
+<p>了解了域名的基本概念和背后的体系后，就到了激动人心的环节——为你自己挑选并注册一个域名。这个过程需要考虑几个方面：你想要的名字本身、选择哪个 TLD 后缀、预算多少，以及选择哪家注册商作为你的合作伙伴。下面我们来逐一分解。</p>
+<h3 id="tld">第一部分：名称与 TLD 后缀的选择</h3>
+<h4 id="_12">挑选合适的名称（你的数字身份标识）</h4>
+<p>域名中的二级域名 (SLD) 部分是你塑造品牌和身份的关键。选择时应遵循以下原则：</p>
+<ul>
+<li><strong>简洁易记：</strong> 尽量选择简短、容易拼写、容易发音的名称 。这有助于口耳相传，减少用户输入错误的可能性 。一到两个单词通常是理想的长度 。</li>
+<li><strong>避免混淆：</strong> 尽量避免使用连字符 (<code>-</code>) 和数字，因为它们容易被遗忘或输错 。除非与你的品牌高度契合且易于理解，否则也应避免使用非标准的拼写或俚语 。同时，注意检查去除空格后的单词组合是否会产生歧义或不雅的含义 。</li>
+<li><strong>品牌相关性：</strong> 名称应能清晰地反映你的业务、品牌、项目内容或个人身份 。如果能与你的公司名称完全匹配，通常能提升可信度 。</li>
+<li><strong>考虑关键词（但非必须）：</strong> 如果自然且不影响品牌性，可以在域名中包含与你的业务或内容相关的关键词，这可能对 SEO 有一定帮助 。但优先考虑的应该是品牌识别度和易记性。</li>
+<li><strong>查询可用性：</strong> 在确定心仪的名称后，需要通过注册商提供的搜索工具（几乎所有注册商网站都有 2）检查该名称在你想要的 TLD 下是否可用。要有心理准备，很多好的、尤其是简短的 <code>.com</code> 域名早已被注册 。这些“溢价”域名可能需要通过域名拍卖或从现有持有者手中高价购买 。</li>
+</ul>
+<h4 id="tld-com">解读 TLD 后缀（超越.com 的选择）</h4>
+<p>TLD 是域名的最后一部分，选择哪个 TLD 也很重要：</p>
+<ul>
+<li><strong>考虑目的和受众：</strong> TLD 应与你的网站性质和目标受众相匹配 。<ul>
+<li><code>.com</code> 是最通用、最知名、最受信任的 TLD，尤其适合商业网站和面向全球的受众 。</li>
+<li><code>.org</code> 通常用于非营利组织、社区项目等，传递出公益和组织的形象 。</li>
+<li><code>.net</code> 最初面向网络服务提供商，现在也广泛用于各种网站，可作为 <code>.com</code> 的替代选择 。</li>
+</ul>
+</li>
+<li><strong>地理定位：</strong> 如果你的业务或内容主要面向特定国家或地区，使用相应的 ccTLD（如 <code>.uk</code>, <code>.ca</code>, <code>.de</code>, <code>.jp</code>, <code>.cn</code>）是一个不错的选择 。这有助于吸引本地用户，并可能提升在当地搜索引擎中的排名 。</li>
+<li><strong>行业或主题相关性：</strong> 大量涌现的新 gTLD 提供了更具描述性的选择，例如：<ul>
+<li>电子商务：<code>.store</code>, <code>.shop</code> 22</li>
+<li>科技领域：<code>.tech</code>, <code>.app</code>, <code>.dev</code>, <code>.io</code> 2</li>
+<li>内容创作：<code>.blog</code>, <code>.site</code> 22</li>
+<li>其他特定领域：<code>.photo</code>, <code>.design</code>, <code>.travel</code>, <code>.fitness</code> 等 。 这些 TLD 可以让访客在访问前就对网站内容有一个大致了解。不过，它们的认知度可能不如 <code>.com</code> 高 。</li>
+</ul>
+</li>
+<li><strong>品牌塑造与可用性：</strong> 当首选的 <code>.com</code> 域名已被注册时，一些简洁、有创意的 TLD（如 <code>.co</code> - 常被视为公司的缩写，<code>.io</code> - 在科技界流行，<code>.me</code> - 适合个人网站）可以作为备选，提供更短或更具品牌特色的域名 。</li>
+</ul>
+<h4 id="tld_1">了解规则：TLD 的注册限制</h4>
+<p>重要提示：并非所有 TLD 都是开放注册的，有些 TLD 有严格的资格要求 。在选择 TLD 前务必了解其规则：</p>
+<ul>
+<li><strong>高度受限的 sTLD：</strong><ul>
+<li><code>.gov</code>：仅限美国政府机构 。</li>
+<li><code>.edu</code>：仅限获得美国认证的高等教育机构 。</li>
+<li><code>.mil</code>：仅限美国国防部相关单位 。</li>
+<li>其他如 <code>.museum</code> (博物馆)、<code>.aero</code> (航空运输业)、<code>.travel</code> (旅游业) 等也需要满足特定的行业或社群资格 。</li>
+</ul>
+</li>
+<li><strong>有地域限制的 ccTLD：</strong> 许多国家代码顶级域名要求注册人必须是该国的居民或在该国拥有注册的商业实体/办事处。<ul>
+<li>例如，注册 <code>.ca</code> (加拿大)、<code>.eu</code> (欧盟)、<code>.us</code> (美国)、<code>.de</code> (德国)、<code>.fr</code> (法国) 等通常需要满足此类条件 。具体规则因 TLD 而异，需要查询对应国家注册管理机构的规定。</li>
+<li>部分域名经销商会出售额外付费的“代理注册”服务，允许非居民注册这些 ccTLD。</li>
+<li>
+<ul>
+<li>但也有例外，一些 ccTLD 如 <code>.co</code> (哥伦比亚)、<code>.io</code> (英属印度洋领地)、<code>.tv</code> (图瓦卢)、<code>.me</code> (黑山) 等，由于其名称的吸引力，注册政策相对开放，已被全球广泛使用 。</li>
+</ul>
+</li>
+<li>特别的，<code>.cat</code> 域名尽管看起来很像英语的“猫”，但实际上是为加泰罗尼亚语社群保留的，注册人必须证明其与加泰罗尼亚文化或语言有联系 。（形式上表现为注册域名后的六个月内必须提交一份包含加泰罗尼亚语内容的网页 ）</li>
+</ul>
+</li>
+<li><strong>可能存在用途限制的 gTLD：</strong> 某些通用 TLD（特别是较新的 grTLD - 通用限制性顶级域名）可能对其预期用途有所规定，例如 <code>.biz</code> 要求用于“善意商业或商业用途” 。</li>
+<li><strong>不可注册的保留 TLD：</strong> 还有一些 TLD 是为特殊目的保留的，不能用于公开注册。如 <code>.example</code> (用于文档示例)、<code>.test</code> (用于测试)、<code>.localhost</code> (用于本地开发环境) 。</li>
+</ul>
+<h4 id="https-tld-hsts">特别注意：强制 HTTPS 的 TLD (HSTS 预加载)</h4>
+<p>这是一个重要的技术性要求，关系到你的网站能否正常工作。</p>
+<ul>
+<li><strong>什么是 HSTS？</strong> HTTP 严格传输安全 (HTTP Strict Transport Security) 是一种安全策略，网站通过发送一个特殊的 HTTP 响应头，告知浏览器在未来一段时间内，只能通过安全的 HTTPS 连接访问该网站，而不能使用不安全的 HTTP 。</li>
+<li><strong>什么是 HSTS 预加载列表？</strong> 为了解决 HSTS 策略需要用户首次成功 HTTPS 访问后才能生效的问题（首次访问仍可能被劫持），主流浏览器（Chrome, Firefox, Safari, Edge, Opera 等）内置了一个“HSTS 预加载列表” 。列表中的域名或 TLD 会被浏览器强制要求始终使用 HTTPS 连接，即使是第一次访问。</li>
+<li><strong>哪些 TLD 在预加载列表中？</strong> 关键在于，<strong>一些 TLD 的管理者（尤其是 Google Registry）已经将其整个 TLD 加入了这个预加载列表</strong> 。这意味着，任何在该 TLD 下注册的域名，都自动被视为需要强制 HTTPS。</li>
+<li><strong>常见的预加载 TLD 示例包括：<code>.dev</code>, <code>.app</code>, <code>.page</code>, <code>.new</code>, <code>.boo</code>, <code>.chrome</code>, <code>.day</code>, <code>.eat</code>, <code>.foo</code>, <code>.gle</code>, <code>.gmail</code>, <code>.google</code>, <code>.how</code>, <code>.ing</code>, <code>.meet</code>, <code>.meme</code>, <code>.mov</code>, <code>.nexus</code>, <code>.phd</code>, <code>.play</code>, <code>.rsvp</code>, <code>.search</code>, <code>.soy</code>, <code>.zip</code> 以及 <code>.bank</code> 和 <code>.insurance</code></strong> 。</li>
+<li><strong>注册这些域名时需要考虑的因素:</strong> 如果你选择注册这些 TLD 下的域名（例如 <code>myproject.dev</code> 或 <code>cool.app</code>），那么你的网站<strong>必须</strong>配置好有效的 SSL/TLS 证书并全程使用 HTTPS 提供服务，否则现代浏览器将无法加载你的网站 。在选择这些 TLD 时，就必须将 HTTPS 作为强制性的技术要求来规划。（不过在现在，大多数网站都<strong>应该</strong>使用 HTTPS 了 ）</li>
+</ul>
+<p>因此，TLD 的选择不仅关乎品牌形象和目标受众，还直接关系到注册资格、潜在成本以及必须满足的技术前提（如 HTTPS）。这是一个需要综合考虑的战略决策。</p>
+<h3 id="_13">第二部分：成本因素（小心价格陷阱！）</h3>
+<p>注册和持有域名是需要持续付费的。域名的价格并非固定不变，受多种因素影响，理解这些因素有助于你做出明智的预算决策。</p>
+<h4 id="_14">为什么价格差异这么大？</h4>
+<ul>
+<li><strong>TLD 本身的成本：</strong> 不同 TLD 的“出厂价”就不同。这个价格由各自的注册管理机构 (Registry) 设定 。<ul>
+<li>像 <code>.com</code>, <code>.org</code>, <code>.net</code> 这样的传统通用 TLD，其注册管理机构收取的费用相对稳定，使得零售价通常落在每年 10-20 美元区间 。</li>
+<li>一些新 gTLD 或特定 TLD 可能非常便宜，例如 <code>.xyz</code>, <code>.live</code> 的标准年费可能低于 5 美元 。</li>
+<li>而另一些 TLD 则定位高端或具有特殊价值，年费可能高达数百甚至数千美元，例如 <code>.auto</code>, <code>.inc</code>, <code>.rich</code>, <code>.cars</code> 等 。</li>
+<li>像 <code>.io</code> 这样的 TLD，虽然是 ccTLD，但因在科技界流行而需求旺盛，价格也明显高于 <code>.com</code> 。</li>
+</ul>
+</li>
+<li><strong>域名的稀缺性与价值（溢价域名）：</strong> 域名本身也是影响价格的重要因素。<ul>
+<li><strong>短小精悍、易于记忆、包含通用词汇或具有强大品牌潜力的域名</strong>，尤其是 <code>.com</code> 后缀的，通常被视为“溢价域名” (Premium Domains) 。</li>
+<li>这些域名可能是由注册管理机构在首次开放注册时就设定了更高的价格，也可能是已经被他人注册，需要在二级市场（域名交易平台或拍卖会）上购买 。</li>
+<li>溢价域名的价格范围极广，从几百美元到数百万美元不等。例如，<code>carinsurance.com</code> 据报道售价近 5000 万美元，<code>voice.com</code> 售价 3000 万美元 。拥有一个顶级溢价域名被视为实力的象征，能迅速建立品牌信任度 。</li>
+</ul>
+</li>
+<li><strong>注册商的定价策略：</strong> 每个注册商在注册管理机构成本和 ICANN 费用的基础上，会加上自己的利润（Markup） 。这个利润空间的大小，以及注册商采取的促销策略，导致了即使是同一个 TLD，在不同注册商那里的售价也可能不同 。</li>
+</ul>
+<h4 id="vs"><em>警惕！</em> 首年低价 vs. 高额续费（最大的“坑”）</h4>
+<p>这是域名市场最常见的定价策略，也是新手最容易忽视的地方：</p>
+<ul>
+<li><strong>诱人的首年价格：</strong> 许多注册商会提供极其低廉的第一年注册价格，有时甚至不到 1 美元，以此吸引新客户 。这通常是一种亏本获客的手段 。</li>
+<li><strong>高昂的续费价格：</strong> 从第二年开始，域名的续费价格通常会<strong>大幅上涨</strong>，恢复到注册商的标准年费水平，这个价格可能比首年价格高出数倍甚至数十倍 。</li>
+<li><strong>具体例子：</strong><ul>
+<li>GoDaddy 的 <code>.com</code> 首年可能仅需 0.99 美元，但续费价可能为 18.17 美元 。</li>
+<li>GoDaddy 的 <code>.us</code> 首年 1.99 美元，续费 19.99 美元 。</li>
+<li>GoDaddy 的 <code>.me</code> 首年 3.49 美元，续费 19.99 美元 。</li>
+<li>Spaceship 的 <code>.com</code> 促销价 5.87 美元，续费价（以 Cloudflare 为例）约 9.77 美元 。</li>
+<li>Spaceship 的 <code>.org</code> 促销价 5.75 美元，续费价 9.98 美元 。</li>
+<li>Spaceship 的 <code>.io</code> 促销价 14.98 美元，续费价高达 38.95 美元以上 。</li>
+<li>Spaceship 的 <code>.xyz</code> 促销价 0.98 美元，续费价（以 Cloudflare 为例）约 10.18 美元 。</li>
+</ul>
+</li>
+<li><strong>关键建议：</strong> 在注册域名时，<strong>务必、务必、务必查看并比较续费价格</strong> 。不要只被第一年的低价所迷惑。计算一下未来几年（例如 3 年或 5 年）的总成本。有些注册商甚至可能要求你在注册时就预付第二年的高价续费 。了解域名的“总拥有成本”(Total Cost of Ownership, TCO) 而非仅仅是“首年标价”，是避免未来预算超支的关键。</li>
+</ul>
+<h4 id="_15">货比三家：不同注册商的价格差异</h4>
+<p>正如前面提到的，不同的注册商对同一个 TLD 的定价（包括首年和续费）可能存在差异 。因此，在决定购买前，进行比价是明智的。</p>
+<ul>
+<li><strong>利用比价工具：</strong> 可以使用像 <code>tld-list.com</code> 这样的域名比价网站来快速比较不同注册商的价格 。</li>
+<li><strong>手动查询：</strong> 也可以直接访问几家主流注册商（如 Namecheap, GoDaddy, Cloudflare Registrar, Porkbun, Google Domains, Spaceship 等）的网站，搜索你想要的域名，查看它们的报价，特别是续费价格 。</li>
+</ul>
+<p><strong>域名价格比较示例：首年 vs. 续费 (约 USD/年)</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TLD</strong></td>
+<td><strong>注册商 (示例)</strong></td>
+<td><strong>首年价格 (促销/标准)</strong></td>
+<td><strong>续费价格</strong></td>
+<td><strong>备注/关键条件</strong></td>
+</tr>
+<tr>
+<td>.com</td>
+<td>Spaceship</td>
+<td>$5.87 (促销) / $9.06</td>
+<td>~$9.77+</td>
+<td>促销限1个；续费参考 Cloudflare 价格 82</td>
+</tr>
+<tr>
+<td>.com</td>
+<td>GoDaddy</td>
+<td>$0.99 (促销)</td>
+<td>$18.17</td>
+<td>促销通常有条件；续费价格较高 71</td>
+</tr>
+<tr>
+<td>.com</td>
+<td>Cloudflare</td>
+<td>$9.77</td>
+<td>$9.77</td>
+<td>价格包含 $0.18 ICANN 费；需使用 Cloudflare Nameservers 82</td>
+</tr>
+<tr>
+<td>.org</td>
+<td>Spaceship</td>
+<td>$5.75 (促销) / $5.80</td>
+<td>$9.98</td>
+<td>促销限1个 82</td>
+</tr>
+<tr>
+<td>.org</td>
+<td>GoDaddy</td>
+<td>$10.17</td>
+<td>~$10-20</td>
+<td>续费价格可能高于首年 71</td>
+</tr>
+<tr>
+<td>.org</td>
+<td>Cloudflare</td>
+<td>$9.98</td>
+<td>$9.98</td>
+<td>价格包含 $0.18 ICANN 费；需使用 Cloudflare Nameservers (价格参考 Spaceship 续费)</td>
+</tr>
+<tr>
+<td>.net</td>
+<td>GoDaddy</td>
+<td>$16.99</td>
+<td>~$18-20</td>
+<td>价格相对较高 35</td>
+</tr>
+<tr>
+<td>.net</td>
+<td>Namecheap</td>
+<td>$14.17</td>
+<td>~$14-16</td>
+<td>35</td>
+</tr>
+<tr>
+<td>.io</td>
+<td>Spaceship</td>
+<td>$14.98 (促销) / $38.98</td>
+<td>$38.95+</td>
+<td>促销限1个；续费价格高昂 82</td>
+</tr>
+<tr>
+<td>.xyz</td>
+<td>Spaceship</td>
+<td>$0.98 (促销) / $2.04</td>
+<td>~$10.18+</td>
+<td>促销限1个；续费价格远高于首年 82</td>
+</tr>
+<tr>
+<td>.xyz</td>
+<td>Cloudflare</td>
+<td>$10.18</td>
+<td>$10.18</td>
+<td>价格包含 $0.18 ICANN 费；需使用 Cloudflare Nameservers</td>
+</tr>
+</tbody>
+</table>
+<p>注意：以上价格仅为示例，基于已有信息片段，可能随时变化。请务必在注册前核实最新价格和条款。</p>
+<h4 id="_16">价格构成解密（你付的钱去了哪里？）</h4>
+<p>你支付给注册商的域名费用，通常包含了以下几个部分：</p>
+<ul>
+<li><strong>注册管理机构费用 (Registry Fee)：</strong> 这是支付给 TLD 运营商（如 Verisign）的费用，通常是域名成本的大头 。例如，<code>.com</code> 的 Registry 费用大约在 7.85 美元到 9.59 美元之间 。</li>
+<li><strong>ICANN 费用：</strong> ICANN 会对每次域名的注册、续费或转移收取一笔固定的、强制性的费用，目前为每年 0.18 美元 。这笔费用通常已经包含在注册商的报价中，但有时也会单独列出 。</li>
+<li><strong>注册商利润 (Registrar Markup)：</strong> 这是注册商在上述成本之上增加的部分，用于覆盖其运营成本（如技术设施、客户服务、市场营销等）并获取利润 。</li>
+<li><strong>可能的附加费用：</strong><ul>
+<li><strong>WHOIS 隐私保护：</strong> 有些注册商免费提供（如 Namecheap, Domain.com 34），有些则需要额外按年付费（约 5-15 美元/年 34）。</li>
+<li><strong>增值服务：</strong> 注册过程中，注册商可能会向你推销各种附加服务，如高级 DNS 管理、电子邮件托管、网站构建器、SSL 证书、安全扫描等 。仔细评估你是否真的需要这些额外付费的服务，警惕不必要的“向上销售” (upselling) 。</li>
+<li><strong>税费：</strong> 根据你所在的地区，可能还需要支付相应的税款。</li>
+</ul>
+</li>
+</ul>
+<h3 id="_17">第三部分：选择你的注册商（寻找靠谱的“管家”）</h3>
+<p>选择注册商不仅仅是看谁的价格最低，更是在选择一个长期管理你重要数字资产的合作伙伴 。以下是一些需要考虑的关键因素：</p>
+<h4 id="_18">价格之外的考量（价值比价格更重要）</h4>
+<ul>
+<li><strong>客户服务：</strong> 当你遇到域名解析问题、续费疑问或需要帮助进行域名转移时，能够及时获得专业有效的支持非常重要。考察注册商提供的支持渠道（电话、实时聊天、邮件）、响应速度和用户评价 。</li>
+<li><strong>管理界面与易用性：</strong> 注册商提供的域名管理后台（控制面板）是否设计直观、功能齐全、易于操作？管理 DNS 记录、设置转发、处理续费等常用操作是否方便？ 。</li>
+<li><strong>附加功能与服务：</strong> 除了基本的域名注册，注册商是否提供有价值的附加服务？例如：<ul>
+<li>免费或价格合理的 WHOIS 隐私保护 。</li>
+<li>稳定可靠的 DNS 服务（有些甚至提供高级 DNS 功能）。</li>
+<li>电子邮件转发或基本的邮箱服务。</li>
+<li>域名锁定 (Registrar Lock / Transfer Lock) 功能，防止域名被恶意转移 。</li>
+<li>账户安全措施，如二次验证 (MFA) 。</li>
+</ul>
+</li>
+<li><strong>声誉与可靠性：</strong> 选择信誉良好、运营稳定、经过 ICANN 认证的注册商 。查看用户评论和行业评价，了解其服务质量和商业道德（例如，是否存在隐藏费用、续费价格是否透明、推销行为是否过度等 33）。</li>
+</ul>
+<h4 id="_19">是否有附加条件？（仔细阅读条款）</h4>
+<ul>
+<li><strong>特定要求：</strong> 某些注册商可能会有一些特殊的使用条件。最典型的例子是 <strong>Cloudflare Registrar</strong>，它以接近成本价提供域名注册和续费，但其主要条件是<strong>必须使用 Cloudflare 的域名服务器 (Nameservers)</strong> 。这意味着你的 DNS 解析必须通过 Cloudflare 进行管理。对于许多用户来说，这可能不是问题，甚至是一个优势（因为 Cloudflare 的 DNS 服务通常被认为是快速和可靠的），但如果你希望使用其他的 DNS 提供商，那么 Cloudflare Registrar 可能就不适合你。</li>
+<li><strong>服务捆绑：</strong> 有些注册商（尤其是同时提供主机服务的公司，如 Bluehost, HostGator）可能会将域名注册与主机套餐捆绑销售，例如购买主机首年赠送免费域名 。你需要仔细评估这种捆绑是否划算，特别是要关注域名和主机在后续年份的续费价格。</li>
+<li><strong>域名转移政策：</strong> 了解注册商关于域名转入和转出的具体流程、可能的限制（例如，ICANN 规定新注册或刚转移过的域名在 60 天内通常不能再次转移 36）以及是否收取额外的转出费用（虽然不常见）。域名转出通常需要从当前注册商获取一个授权码 (Authorization Code / EPP Code) 。</li>
+</ul>
+<h4 id="_20">信任与安全（保护你的数字资产）</h4>
+<p>你的域名是一个有价值的数字资产，其安全性至关重要。注册商在其中扮演着关键角色：</p>
+<ul>
+<li><strong>账户安全：</strong> 你的注册商账户控制着你的域名。选择提供强大账户安全措施的注册商，特别是<strong>多因素认证 (MFA)</strong>，并且最好选择非短信验证的方式（如验证器 App 或安全密钥） 。同时，务必为你的注册商账户设置一个强壮且唯一的密码 。</li>
+<li><strong>域名锁定：</strong> 务必启用注册商提供的“域名锁定”或“禁止转移”功能 。这可以防止他人在未经你授权的情况下将你的域名转移走。</li>
+<li><strong>注册商的责任：</strong> ICANN 认证的注册商有责任遵守一系列运营和安全标准 。这包括：维护准确的注册信息 31，按时发送续费通知 31，按照标准流程处理域名转移请求 31，保护注册人数据，并建立处理域名滥用（如用于网络钓鱼、传播恶意软件等）的机制和联系渠道 。选择一个负责任的注册商意味着在出现问题时，你有更规范的流程和途径来解决。</li>
+</ul>
+<p>选择注册商是一个需要权衡的过程。低价可能意味着服务或支持上的妥协，而看似昂贵的选项可能包含了更多有价值的功能或提供了更好的长期保障。由于更换注册商虽然可行，但仍涉及一些步骤和潜在的麻烦 31，并且你可能会因为习惯了某个界面、或者服务被捆绑（如主机）而倾向于留在原来的注册商 84，因此，在最初选择时就进行充分的调研和比较，找到一个价格合理、服务可靠、值得信赖的长期合作伙伴，是非常重要的。</p>
+<p>不负责的推荐以下注册商：
+* Cloudflare Registrar: 价格通常接近成本价（只有注册局和 ICANN 费用），但需要使用 Cloudflare 的 DNS 服务。适合已经在使用 Cloudflare 的用户。
+* Spaceship: 价格相对较低，适合个人和小型项目。提供简单易用的界面和良好的客户支持。
+* Namesilo: 提供多种 TLD 的注册，价格合理，部分界面稍微老旧，但功能齐全。适合对价格敏感的用户。
+* Gandi.net: 提供多种 TLD 的注册，价格相对较高，但提供了丰富的附加服务和良好的客户支持。适合需要额外服务的用户。</p>
+<h2 id="_21">特别提醒：关于在中国注册域名的注意事项</h2>
+<h3 id="_22">引言</h3>
+<p>虽然域名系统是全球互联的，但在特定国家或地区注册和管理域名，可能会受到当地法律法规的显著影响。在中国大陆选择域名注册商或注册由中国大陆、香港或澳门的注册管理机构运营的 TLD 时，存在一些特定的风险和需要注意的事项。</p>
+<h3 id="_23">使用中国大陆注册商的风险</h3>
+<p>选择位于中国大陆境内的域名注册商（例如阿里云、腾讯云等提供的域名注册服务）可能面临以下问题：</p>
+<ul>
+<li><strong>基于行政命令的域名暂停风险 ("ClientHold")：</strong> 在中国大陆注册的域名，注册商在收到相关管理部门（如网信办、公安等）的指令后，可以迅速将域名设置为 <code>ClientHold</code> 状态，导致域名无法解析，网站无法访问。这种情况可能在没有事先通知的情况下发生，原因可能是网站上发布了被当局认定为“有问题”的内容，即使网站所有者认为内容合法合规 。资料中以 LeanCloud 的域名被阿里云暂停为例，说明了过程可能缺乏透明度，且难以快速解决 。</li>
+<li><strong>缺乏真正的控制权：</strong> 即使支付了费用，用户对域名的实际控制权也可能受到行政干预的影响。域名随时可能因为外部指令而被注册商暂停使用 。</li>
+<li><strong>个人信息泄露给当局的风险：</strong> 如果使用国内注册商注册的域名下的网站被发现传播“违法违规”信息，当局可以直接要求注册商提供注册人的详细信息，包括身份信息、支付方式、登录记录等，可能给注册人带来法律风险 。</li>
+<li><strong>易受“举报”影响：</strong> 资料中提到，当前的社会环境下，“举报”行为普遍，个人或网站可能因为被他人举报其内容而导致域名服务受到影响 。</li>
+</ul>
+<h3 id="registry-tld_1">使用位于中国的注册管理机构 (Registry) 的风险（影响特定 TLD）</h3>
+<p>除了注册商的选择，也应避免注册由位于中国大陆、香港或澳门的注册管理机构运营的 TLD（即域名后缀）。这与你选择哪家注册商无关，风险来自于 TLD 本身的管理方：</p>
+<ul>
+<li><strong>政策不确定性与政府干预：</strong> 以管理 <code>.cn</code> 域名的 CNNIC 为例，其政策曾出现波动，例如在 2009 年曾一度收紧甚至暂停个人注册 <code>.cn</code> 域名，理由是打击不良信息，但之后政策又可能发生变化 。此外，还发生过在 2008 年奥运会后，CNNIC 依据政策强制收回已被注册的与奥运冠军姓名相关的域名的情况 。这表明 Registry 可能会根据政府的意愿调整规则或干预已有的注册。</li>
+<li><strong>宽泛且模糊的法规约束：</strong> 在中国注册管理机构下的域名需要遵守《中国互联网络域名管理办法》等法规。这些法规中包含一些定义宽泛的条款，禁止域名用于发布反对宪法基本原则、危害国家安全、损害国家荣誉、扰乱社会秩序等内容 。这些模糊的规定为解释和执行留下了很大的空间，增加了不确定性。</li>
+<li><strong>新 TLD 的潜在风险：</strong> 即使一些由中国公司运营的新 TLD（如 <code>.top</code>, <code>.xin</code>, <code>.wang</code> 等）目前可能可以通过境外注册商以较少限制注册，但资料警告说，这些 TLD 的管理机构仍在中国境内，未来仍可能受到中国监管政策变化的影响，面临类似 <code>.cn</code> 域名的风险 。</li>
+</ul>
+<h3 id="_24">建议：谨慎行事</h3>
+<p>基于上述风险——包括潜在的域名被任意暂停、缺乏程序正义、个人数据隐私风险以及政策的不稳定性——资料 87 强烈建议，特别是对于那些身处中国大陆境外、或者网站内容可能涉及敏感话题的用户，应<strong>避免使用中国大陆的域名注册商</strong>，并且<strong>避免注册那些注册管理机构位于中国大陆、香港或澳门的 TLD</strong>。</p>
+<p>这些考量表明，域名的管理并非纯粹的技术问题，它深受地缘政治和国家法律框架的影响。在一个强调国家网络主权的环境下，选择注册商和 TLD 的地理位置及其对应的法律管辖区，成为了一项重要的风险评估。这与 ICANN 倡导的多利益相关方治理模式形成了对比，凸显了不同治理模式下用户可能面临的不同境遇。用户需要认识到，风险不仅来自直接打交道的注册商（零售层面），也可能来自更上游的、负责 TLD 运营的注册管理机构（批发和管理层面），后者受到的政府影响可能更为深远。</p>
+<h2 id="_25">总结：你的域名之旅即将启程</h2>
+<p>好了，关于域名的世界，我们已经一起探索了许多。现在，让我们快速回顾一下关键点：</p>
+<ul>
+<li><strong>域名是你的数字身份核心：</strong> 它不仅仅是一个网址，更是品牌形象、专业度和在线可信度的基石。</li>
+<li><strong>理解幕后玩家：</strong> 了解注册管理机构 (Registry)、注册商 (Registrar) 和 ICANN 的角色，有助于你明白这个系统如何运作，以及遇到问题时该找谁。</li>
+<li><strong>保护你的隐私：</strong> 公开的 WHOIS 信息存在风险，考虑使用 WHOIS 隐私保护服务。同时，关注 RDAP 这一更现代、更注重隐私的新标准的发展。</li>
+<li><strong>明智地选择 TLD：</strong> <code>.com</code> 虽好，但不是唯一选择。根据你的目标、受众和预算，考虑 ccTLD 或新 gTLD。特别注意那些有注册限制或强制要求 HTTPS (HSTS 预加载) 的 TLD。</li>
+<li><strong>警惕价格陷阱：</strong> 域名的价格差异很大。务必关注续费价格，而不仅仅是诱人的首年低价，计算总拥有成本。</li>
+<li><strong>选择靠谱的注册商：</strong> 价格重要，但服务、易用性、安全性和可靠性同样关键。选择一个值得信赖的长期合作伙伴。</li>
+<li><strong>注意地域风险：</strong> 在特定司法管辖区（如中国大陆）注册或管理域名可能带来额外的风险，需要谨慎评估。</li>
+</ul>
+<p>拥有这些知识，你就如同拿到了一份详细的“域名漫游指南”。现在，你可以更加自信地去寻找、选择并注册那个完美的域名，为你的在线事业或个人项目打下坚实的基础。你的数字世界大门，正等待你用一把合适的“钥匙”——你的域名——去开启。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="termux.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: Termux">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Termux
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../chatting/index.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 聊天工具和知识概览">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                聊天工具和知识概览
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <p xmlns:cc="http://creativecommons.org/ns#" >Unless otherwise declared, this work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="../assets/external/mirrors.creativecommons.org/presskit/icons/cc.342ac5e2.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="../assets/external/mirrors.creativecommons.org/presskit/icons/by.342ac5e2.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="../assets/external/mirrors.creativecommons.org/presskit/icons/nc.342ac5e2.svg" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="../assets/external/mirrors.creativecommons.org/presskit/icons/sa.342ac5e2.svg" alt=""></a></p>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.footer", "navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "search.suggest", "search.highlight", "search.share", "toc.follow", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  <script id="init-glightbox">document.querySelectorAll('.glightbox').forEach(function(element) {
+    try {
+        var img = element.querySelector('img');
+        if (img && img.src) {
+            element.setAttribute('href', img.src);
+        } else {
+            console.log('No img element with src attribute found');
+        }
+    } catch (error) {
+        console.log('Error:', error);
+    }
+});
+const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
